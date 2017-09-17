@@ -1,0 +1,28 @@
+body{
+  .navbar{
+    border-radius: 0;
+    .navbar-right{
+      #message-login{
+        padding-top: 7px;
+      }
+    }
+    .navbar-header{
+      .navbar-brand{
+        font-weight: 900;
+        font-family: cursive;
+        color: #337ab7;
+        font-size: 30px;
+      }
+    }
+  }
+  .container-fluid{
+    .post-me{
+      line-height: 25px;
+    }
+    .list-group{
+      .list-group-item{
+        border-radius: 0;
+      }
+    }
+  }
+}
