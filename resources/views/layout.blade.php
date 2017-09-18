@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '../../vendor/autoload.php';
+require_once 'C:\xampp1\htdocs\FacebookAuto/vendor/facebook/graph-sdk/src/Facebook/autoload.php';
 use Facebook\Authentication\AccessToken;
 use Facebook\FacebookApp;
 use Facebook\FacebookRequest;
@@ -32,9 +32,9 @@ $fb = new Facebook\Facebook(array(
 <div class="container-fluid">
     <div class="row">
         @include('layout.menu-left')
-        <div class="col-md-10">
 
-        </div>
+        @yield('content')
+
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

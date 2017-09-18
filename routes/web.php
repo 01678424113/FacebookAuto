@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
+Route::get('/pages','CategoriesPageController@getPostPage')->name('getPostPage');
+Route::get('/groups','CategoriesPageController@getPostGroup')->name('getPostGroup');
