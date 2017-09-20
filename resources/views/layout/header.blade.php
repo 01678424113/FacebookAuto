@@ -9,7 +9,25 @@
              <li><a href="#">Page 2</a></li>
          </ul>-->
         <ul class="nav navbar-nav navbar-right" style="margin-top: 6px;">
-            <li><button class="btn btn-info" onClick="logInWithFacebook()" id="login" >LOGIN FACEBOOK</button></li>
+            @if(!(Cookie::has('user_name')))
+                <li>
+                    <a href="{{route('login')}}"><button class="btn btn-info" id="login">LOGIN FACEBOOK</button></a>
+                </li>
+            @else
+                <li class="btn-group">
+                    <button type="button" class="btn btn-success">
+                        {{Cookie::get('user_name')}}
+                    </button>
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            @endif
         </ul>
     </div>
 </nav>

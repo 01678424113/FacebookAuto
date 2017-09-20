@@ -6,10 +6,16 @@
             <div class="mt-5 mb-5">
                 <h3>Danh sách các group của mình</h3>
                 <hr>
-                <form action="http://localhost/FacebookAPI//pages/post-group.php" method="post">
+                <form action="{{route('postPostGroup')}}" method="post">
+                    {{csrf_field()}}
                     <?php
-                    if (isset($_COOKIE["accessToken"])) {
-                        $res = $fb->get('/me/groups', $_COOKIE["accessToken"]);
+                    $fb = new Facebook\Facebook([
+                        'app_id' => env('FACEBOOK_APP_ID'),
+                        'app_secret' => env('FACEBOOK_APP_SECRET'),
+                        'default_graph_version' => env('FACEBOOK_API_VERSION'),
+                    ]);
+                    if (Cookie::has('accessToken')) {
+                        $res = $fb->get('/me/groups', Cookie::get('accessToken'));
                         $res = $res->getDecodedBody();
                         $checked = "";
                         foreach ($res['data'] as $group) {
@@ -43,9 +49,8 @@
                         <h3>Post bài lên group đã chọn</h3>
                         <hr>
                         Message : <br> <input type="text" name="message" id="message" style="width: 100%"><br>
-                        <input type="text" name="access_token_user" id="access_token_user" value="<?php if (isset($_COOKIE['accessToken'])) {
-                            echo $_COOKIE['accessToken'];
-                        } ?>"><br>
+                        <textarea name="access_token_user" style="width: 500px;height: 200px;" id="access_token_user"><?php if (Cookie::has('accessToken')) { echo Cookie::get('accessToken');}?></textarea>
+                        <br>
                         Tự đăng sau : <br> <input type="text" id="time" value="">
                         <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPostGroup()">
                     </div>
@@ -60,4 +65,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="js/handling-group.js"></script>
 @endsection

@@ -6,10 +6,16 @@
             <div class="mt-5 mb-5">
                 <h3>Danh sách các page của mình</h3>
                 <hr>
-                <form action="http://localhost/FacebookAPI//pages/post-page.php" method="post">
+                <form action="{{route('getPostPage')}}" method="post">
+                    {{csrf_field()}}
                     <?php
-                    if (isset($_COOKIE["accessToken"])) {
-                        $res = $fb->get('/me/likes', $_COOKIE["accessToken"]);
+                    $fb = new Facebook\Facebook([
+                        'app_id' => env('FACEBOOK_APP_ID'),
+                        'app_secret' => env('FACEBOOK_APP_SECRET'),
+                        'default_graph_version' => env('FACEBOOK_API_VERSION'),
+                    ]);
+                    if ((Cookie::has('accessToken'))) {
+                        $res = $fb->get('/me/accounts', Cookie::get('accessToken'));
                         $res = $res->getDecodedBody();
                         $checked = "";
                         foreach ($res['data'] as $page) {
@@ -22,8 +28,8 @@
                                         $checked = "";
                                     }
                                 }
-                            } else if (isset($_SESSION['page_ids'])) {
-                                foreach ($_SESSION['page_ids'] as $page_id) {
+                            } else if (Session::get('page_ids')) {
+                                foreach (Session::get('page_ids') as $page_id) {
                                     if ($page_id == $page['id']) {
                                         $checked = "checked";
                                         break;
@@ -42,16 +48,17 @@
             <!--End show list page-->
             <!-- Lay access token-->
             <div>
-                <form action="http://localhost/FacebookAPI/get_page_access_token.php" method="post">
+                <form action="{{route('getAccessTokenPage')}}" method="post">
+                    {{csrf_field()}}
                         <textarea name="page_ids" id="page_ids" style="width: 500px;height: 200px;"
-                                  placeholder="Nhập id các page" hidden>
+                                  placeholder="Nhập id các page">
                             <?php
                             if (isset($_POST['checkbox-page'])) {
                                 foreach ($_POST['checkbox-page'] as $value) {
                                     echo $value . ";";
                                 }
-                            } else if (isset($_SESSION['page_ids'])) {
-                                foreach ($_SESSION['page_ids'] as $page_id) {
+                            } else if (Session::get('page_ids')) {
+                                foreach (Session::get('page_ids') as $page_id) {
                                     echo $page_id . ";";
                                 }
                             }
@@ -66,10 +73,10 @@
                     <div>
                         <h3>Post bài lên page đã chọn</h3>
                         <hr>
-                        <textarea name="access_token" id="access_token_page" style="width: 100%;height: 200px;" hidden>
+                        <textarea name="access_token" id="access_token_page" style="width: 100%;height: 200px;" >
                             <?php
-                            if (isset($_SESSION['list_access_token']) && count($_SESSION['list_access_token']) > 0) {
-                                foreach ($_SESSION['list_access_token'] as $access_token_page) {
+                            if (Session::get('list_access_token') && count(Session::get('list_access_token')) > 0) {
+                                foreach (Session::get('list_access_token') as $access_token_page) {
                                     echo $access_token_page . ";";
                                 }
                             }
@@ -80,7 +87,7 @@
 
                         <!--Tự đăng sau :--> <br> <input type="text" id="time" value="">
                         <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPost()">
-                        <a class="btn btn-danger" href="http://localhost/FacebookAPI/reset.php">Reset</a>
+                        <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                     </div>
                     <hr>
                 </div>
@@ -93,4 +100,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="js/handling-page.js"></script>
 @endsection

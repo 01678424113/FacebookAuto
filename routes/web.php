@@ -11,8 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
+Route::get('/','FacebookController@index')->name('home');
+
+Route::get('/pages', 'CategoriesPageController@getPostPage')->name('getPostPage');
+Route::post('/pages','CategoriesPageController@getPostPage')->name('postPostPage');
+Route::post('/get-access-token-page','CategoriesPageController@getAccessTokenPage')->name('getAccessTokenPage');
+Route::get('/reset','CategoriesPageController@reset')->name('reset');
+
+Route::get('/groups', 'CategoriesPageController@getPostGroup')->name('getPostGroup');
+Route::post('groups','CategoriesPageController@getPostGroup')->name('postPostGroup');
+
+
+Route::group(['prefix' => 'facebook'], function () {
+    Route::get('login','FacebookController@facebookLogin')->name('login');
+    Route::get('login-callback', 'FacebookController@facebookLoginCallback');
+    Route::get('logout', 'FacebookController@facebookLogout')->name('logout');
 });
-Route::get('/pages','CategoriesPageController@getPostPage')->name('getPostPage');
-Route::get('/groups','CategoriesPageController@getPostGroup')->name('getPostGroup');
+//Facebook Socialite
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
