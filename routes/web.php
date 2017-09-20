@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','FacebookController@index')->name('home');
+Route::get('/','HomeController@index')->name('home');
 
 Route::get('/pages', 'CategoriesPageController@getPostPage')->name('getPostPage');
 Route::post('/pages','CategoriesPageController@getPostPage')->name('postPostPage');
@@ -27,6 +27,3 @@ Route::group(['prefix' => 'facebook'], function () {
     Route::get('login-callback', 'FacebookController@facebookLoginCallback');
     Route::get('logout', 'FacebookController@facebookLogout')->name('logout');
 });
-//Facebook Socialite
-Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');

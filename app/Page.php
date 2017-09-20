@@ -11,7 +11,7 @@ class Page extends Model
 
     public function category()
     {
-        return $this->belongsTo(CategoriesPage::class);
+        return $this->belongsTo(CategoriesPage::class,'id_category','id');
     }
 }
 
