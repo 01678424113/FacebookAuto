@@ -23,7 +23,7 @@ class FacebookController extends Controller
     public function facebookLogin(Request $request)
     {
         $helper = $this->fb->getRedirectLoginHelper();
-        $permissions = ['publish_pages,public_profile,user_managed_groups,publish_actions,user_likes,manage_pages,pages_show_list'];
+        $permissions = ['publish_pages,user_managed_groups,publish_actions,user_likes,manage_pages,pages_show_list'];
         $loginURL = $helper->getLoginUrl(action('FacebookController@facebookLoginCallback'), $permissions);
         return view('facebook.login', ['login_url' => $loginURL]);
     }

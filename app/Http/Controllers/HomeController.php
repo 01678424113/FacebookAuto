@@ -9,8 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = CategoriesPage::all();
-        $pages = Page::all();
-        return view('pages.index',['categories'=>$categories,'pages'=>$pages]);
+        return view('pages.index');
     }
 }

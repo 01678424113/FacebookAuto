@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="col-md-10">
-        <div class="post-page">
+        <div class="content-right post-page">
             <!--Show list page-->
             <div class="mt-5 mb-5">
                 <h3>Danh sách các page của mình</h3>
@@ -38,7 +38,9 @@
                                     }
                                 }
                             }
-                            echo "<input type='checkbox' name='checkbox-page[]'  value='" . $page['id'] . "' " . $checked . ">" . " " . $page['name'] . "-" . $page['id'] . "<br>";
+                            echo " <div class='checkbox'>
+                                    <label><input type='checkbox' name='checkbox-page[]' value='".$page['id']."' ".$checked.">".$page['name']." - ".$page['id']."</label>
+                                   </div>";
                         }
                     }
                     ?>
@@ -51,7 +53,7 @@
                 <form action="{{route('getAccessTokenPage')}}" method="post">
                     {{csrf_field()}}
                         <textarea name="page_ids" id="page_ids" style="width: 500px;height: 200px;"
-                                  placeholder="Nhập id các page">
+                                  placeholder="Nhập id các page" hidden>
                             <?php
                             if (isset($_POST['checkbox-page'])) {
                                 foreach ($_POST['checkbox-page'] as $value) {
@@ -73,7 +75,7 @@
                     <div>
                         <h3>Post bài lên page đã chọn</h3>
                         <hr>
-                        <textarea name="access_token" id="access_token_page" style="width: 100%;height: 200px;" >
+                        <textarea name="access_token" id="access_token_page" style="width: 100%;height: 200px;" hidden>
                             <?php
                             if (Session::get('list_access_token') && count(Session::get('list_access_token')) > 0) {
                                 foreach (Session::get('list_access_token') as $access_token_page) {
@@ -82,10 +84,21 @@
                             }
                             ?>
                             </textarea><br>
-                        Link : <br> <input type="url" name="link" id="link" style="width: 100%"><br>
-                        Message : <br> <input type="url" name="message" id="message" style="width: 100%"><br>
+                        <div class="form-group">
+                            <label for="link">Link :</label>
+                            <input type="url" class="form-control" name="link" id="link">
+                        </div>
 
-                        <!--Tự đăng sau :--> <br> <input type="text" id="time" value="">
+                        <div class="form-group">
+                            <label for="message">Message :</label>
+                            <input type="url" class="form-control" name="message" id="message">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Tự đăng sau :</label>
+                            <input type="number" class="form-control" name="time" id="time">
+                        </div>
+
                         <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPost()">
                         <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                     </div>

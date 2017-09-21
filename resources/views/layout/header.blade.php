@@ -11,7 +11,7 @@
         <ul class="nav navbar-nav navbar-right" style="margin-top: 6px;">
             @if(!(Cookie::has('user_name')))
                 <li>
-                    <a href="{{route('login')}}"><button class="btn btn-info" id="login">LOGIN FACEBOOK</button></a>
+                    <a href="{{route('login')}}"><button class="btn btn-info" id="login">Login now</button></a>
                 </li>
             @else
                 <li class="btn-group">
@@ -24,7 +24,7 @@
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                        <li><a href="{{route('logout')}}">Logout</a></li>
                     </ul>
                 </li>
             @endif

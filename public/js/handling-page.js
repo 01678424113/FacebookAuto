@@ -32,7 +32,7 @@ function _AutoCall() {
         _ListIndex++;
         if (_ListIndex < _List.length) {
             //Delete space
-            if (_List[_ListIndex] === "" || _List_access_token[_ListIndex] === "") {
+            if (_List[_ListIndex] === "") {
                 CallAutoCall = false;
             } else {
                 _List[_ListIndex] = _List[_ListIndex].trim();

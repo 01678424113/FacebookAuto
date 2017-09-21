@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="col-md-10">
-        <div class="post-page">
+        <div class="content-right post-group">
             <!--Show list page-->
             <div class="mt-5 mb-5">
                 <h3>Danh sách các group của mình</h3>
@@ -29,12 +29,15 @@
                                     }
                                 }
                             }
-                            echo "<input type='checkbox' name='checkbox-page[]'  value='" . $group['id'] . "' " . $checked . ">" . " " . $group['name'] . "-" . $group['id'] . "<br>";
+                            echo " <div class='checkbox'>
+                                    <label><input type='checkbox' name='checkbox-page[]' value='".$group['id']."' ".$checked.">".$group['name']." - ".$group['id']."</label>
+                                   </div>";
                         }
                     }
                     ?>
                     <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-page"
                            value="Chọn page">
+
                 </form>
             </div>
             <!--End show list page-->
@@ -48,11 +51,18 @@
                     <div>
                         <h3>Post bài lên group đã chọn</h3>
                         <hr>
-                        Message : <br> <input type="text" name="message" id="message" style="width: 100%"><br>
+                        <div class="form-group">
+                            <label for="message">Message :</label>
+                            <input type="text" class="form-control" name="message" id="message">
+                        </div>
                         <textarea name="access_token_user" style="width: 500px;height: 200px;" id="access_token_user"><?php if (Cookie::has('accessToken')) { echo Cookie::get('accessToken');}?></textarea>
                         <br>
-                        Tự đăng sau : <br> <input type="text" id="time" value="">
+                        <div class="form-group">
+                            <label for="time">Tự đăng sau :</label>
+                            <input type="number" class="form-control" name="time" id="time">
+                        </div>
                         <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPostGroup()">
+                        <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                     </div>
                     <hr>
                 </div>
