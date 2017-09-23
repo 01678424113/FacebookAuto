@@ -27,7 +27,7 @@
                     </tr>
                 @endforeach
             </table>
-            <button class="btn btn-info"><a href="{{route('getAddPage')}}">Add page</a></button>
+            <button class="btn btn-info btn-add"><a href="{{route('getAddPage')}}">Add page</a></button>
         </div>
         @if(session('message'))
             <div class="alert alert-success">

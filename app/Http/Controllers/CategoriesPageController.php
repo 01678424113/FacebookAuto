@@ -44,7 +44,7 @@ class CategoriesPageController extends Controller
     {
         session_start();
         //Config App
-        $access_token_user = Cookie::get('accessToken');
+        $access_token_user = Session::get('accessToken_user');
         $app = new FacebookApp(env('FACEBOOK_APP_ID'), env('FACEBOOK_APP_SECRET'));
         $fb = new Facebook\Facebook([
             'app_id' => env('FACEBOOK_APP_ID'),
@@ -91,10 +91,10 @@ class CategoriesPageController extends Controller
             }
             Session::put('list_access_token',$list_access_token);
             Session::put('page_ids',$page_ids_list);
-            return redirect('/pages');
+            return redirect()->back();
         }else{
             Session::flush();
-            return redirect('/pages');
+            return redirect()->back();
         }
     }
 

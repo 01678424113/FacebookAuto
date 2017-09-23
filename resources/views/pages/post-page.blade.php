@@ -57,11 +57,11 @@
                             <?php
                             if (isset($_POST['checkbox-page'])) {
                                 foreach ($_POST['checkbox-page'] as $value) {
-                                    echo $value . ";";
+                                    echo trim($value) . ";";
                                 }
                             } else if (Session::get('page_ids')) {
                                 foreach (Session::get('page_ids') as $page_id) {
-                                    echo $page_id . ";";
+                                    echo trim($page_id) . ";";
                                 }
                             }
                             ?>

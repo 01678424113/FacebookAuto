@@ -1,32 +1,50 @@
+.col-no-padding {
+  padding: 0; }
+
 body .navbar {
   border-radius: 0; }
-  body .navbar .navbar-right #message-login {
-    padding-top: 7px; }
+  body .navbar .navbar-right {
+    margin-right: 50px; }
   body .navbar .navbar-header .navbar-brand {
     font-weight: 900;
     font-family: cursive;
     color: #337ab7;
     font-size: 30px; }
-body .container-fluid .post-me {
+body .post-me {
   line-height: 25px; }
-body .container-fluid .menu-left {
-  margin-top: 30px;
+body .menu-left {
   height: 1000px;
   background: #f5f5f5; }
-  body .container-fluid .menu-left .panel-group {
+  body .menu-left .logo {
+    font-weight: 900;
+    font-family: cursive;
+    color: #337ab7;
+    font-size: 30px;
+    text-align: center; }
+  body .menu-left .panel-group {
     margin-bottom: -1px; }
-body .container-fluid .content-right {
+    body .menu-left .panel-group .panel .panel-heading .panel-title a {
+      margin-left: 10px; }
+body .content-right {
   padding: 40px;
   padding-top: 0; }
-  body .container-fluid .content-right .table-hover {
+  body .content-right .table-hover {
     margin-bottom: 10px; }
-    body .container-fluid .content-right .table-hover tr {
+    body .content-right .table-hover tr {
       border-bottom: 1px solid rgba(128, 128, 128, 0.2); }
-      body .container-fluid .content-right .table-hover tr td {
+      body .content-right .table-hover tr td {
         padding: 5px;
         text-align: center; }
-    body .container-fluid .content-right .table-hover tr:first-child {
+        body .content-right .table-hover tr td button a {
+          color: white; }
+          body .content-right .table-hover tr td button a:hover {
+            text-decoration: none; }
+    body .content-right .table-hover tr:first-child {
       background: rgba(128, 128, 128, 0.2); }
+  body .content-right .btn-add a {
+    color: white; }
+    body .content-right .btn-add a:hover {
+      text-decoration: none; }
 
 /***********************************************Page***************************************************/
 body .content-right {

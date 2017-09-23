@@ -16,15 +16,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-@include('layout.header')
-
 <div class="container-fluid">
     <div class="row">
-        @include('layout.menu-left')
-
-        @yield('content')
-
+        <div class="col-md-2 col-no-padding">
+            @include('layout.menu-left')
+        </div>
+        <div class="col-md-10" style="padding-right: 0">
+            <div class="row">
+                <div class="col-md-12">
+                    @include('layout.header')
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
