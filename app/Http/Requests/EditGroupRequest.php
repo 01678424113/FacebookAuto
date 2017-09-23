@@ -13,7 +13,7 @@ class EditGroupRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,19 @@ class EditGroupRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            //
+            'group_id'=>'required',
+            'group_name'=>'required',
+            'id_category'=>'required'
+        ];
+    }
+
+    public function messages() {
+        return [
+            'group_id.required'=>'Id group không dược để trống.',
+            'group_name.required'=>'Tên group không được để trống',
+            'id_category.required'=>'Thể loại group không được để trống'
         ];
     }
 }

@@ -13,7 +13,7 @@
 
 Route::get('/','HomeController@index')->name('home');
 
-Route::group(['prefix'=>'user','middleware'=>'auth'],function (){
+Route::group(['prefix'=>'user','middleware'=>'userLogin'],function (){
     Route::get('/pages-show','PageController@index')->name('showPage');
     Route::get('/pages-create','PageController@getAdd')->name('getAddPage');
     Route::post('pages-create','PageController@postAdd')->name('postAddPage');
@@ -27,8 +27,23 @@ Route::group(['prefix'=>'user','middleware'=>'auth'],function (){
 
     Route::get('/reset','CategoriesPageController@reset')->name('reset');
 
-    Route::get('/groups', 'CategoriesPageController@getPostGroup')->name('getPostGroup');
-    Route::post('groups','CategoriesPageController@getPostGroup')->name('postPostGroup');
+    Route::get('/groups-show','GroupController@index')->name('showGroup');
+    Route::get('/groups-create','GroupController@getAdd')->name('getAddGroup');
+    Route::post('groups-create','GroupController@postAdd')->name('postAddGroup');
+    Route::get('/groups-delete/{id}','GroupController@delete')->name('deleteGroup');
+    Route::get('/groups-edit/{id}','GroupController@getEdit')->name('getEditGroup');
+    Route::post('/groups-edit/{id}','GroupController@postEdit')->name('postEditGroup');
+
+    Route::get('/groups-me', 'CategoriesPageController@getPostGroupMe')->name('getPostGroupMe');
+    Route::post('groups-me','CategoriesPageController@getPostGroupMe')->name('postPostGroupMe');
+    Route::get('/groups-id', 'CategoriesPageController@getPostGroupId')->name('getPostGroupId');
+    Route::post('groups-id','CategoriesPageController@getPostGroupId')->name('postPostGroupId');
+    Route::get('/groups-category', 'CategoriesPageController@getPostGroupCategory')->name('getPostGroupCategory');
+    Route::post('groups-category','CategoriesPageController@getPostGroupCategory')->name('postPostGroupCategory');
+
+    Route::group(['prefix'=>'ajax'],function (){
+       Route::get('/group/{id_category}','AjaxController@getListGroup')->name('ajaxGroup');
+    });
 });
 
 Route::group(['prefix' => 'facebook'], function () {

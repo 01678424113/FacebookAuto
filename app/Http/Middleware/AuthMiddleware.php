@@ -2,8 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
+
 use Closure;
-use Cookie;
+
 
 class AuthMiddleware
 {
@@ -14,13 +16,10 @@ class AuthMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
-        if(Cookie::has('accessToken'))
-        {
-            return $next($request);
-        }else{
-            return view('facebook.login');
+    public function handle($request, Closure $next) {
+        if (!$request->session()->has('user_name')) {
+            return redirect()->route('login');
         }
+        return $next($request);
     }
 }

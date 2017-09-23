@@ -9,17 +9,17 @@
              <li><a href="#">Page 2</a></li>
          </ul>-->
         <ul class="nav navbar-nav navbar-right" style="margin-top: 6px;">
-            @if(!(Cookie::has('user_name')))
+            @if(!(Session::has('user_name')))
                 <li>
                     <a href="{{route('login')}}"><button class="btn btn-info" id="login">Login now</button></a>
                 </li>
             @else
                 <li class="btn-group">
                     <button type="button" class="btn btn-success">
-                        {{Cookie::get('user_name')}}
+                        {{Session::get('user_name')}}
                     </button>
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                            aria-haspopup="true" aria-expanded="false" style="height: 34px;">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>

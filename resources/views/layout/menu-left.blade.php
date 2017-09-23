@@ -4,6 +4,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
+                        <i class="fa fa-apple" aria-hidden="true"></i>
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Page</a>
                     </h4>
                 </div>
@@ -20,14 +21,17 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
+                        <i class="fa fa-google-wallet" aria-hidden="true"></i>
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Group</a>
                     </h4>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="{{route('getPostGroup')}}">Đăng lên group</a></li>
-                        <li class="list-group-item"><a href="">Danh sách group</a></li>
-                        <li class="list-group-item"><a href="">Thêm group</a></li>
+                        <li class="list-group-item"><a href="{{route('getPostGroupMe')}}">Đăng lên group của bạn</a></li>
+                        <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên group theo id</a></li>
+                        <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên group theo thể loại</a></li>
+                        <li class="list-group-item"><a href="{{route('showGroup')}}">Danh sách group</a></li>
+                        <li class="list-group-item"><a href="{{route('getAddGroup')}}">Thêm group</a></li>
                     </ul>
                 </div>
             </div>

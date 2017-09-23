@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\CategoriesPage;
+use App\User;
+use App\Group;
 use Cookie;
 use Illuminate\Http\Request;
 use Facebook;
@@ -21,9 +24,20 @@ class CategoriesPageController extends Controller
         return view('pages.post-page');
     }
 
-    public function getPostGroup()
+    public function getPostGroupMe()
     {
-        return view('pages.post-group');
+
+        return view('groups.post-group-me');
+    }
+    public function getPostGroupId()
+    {
+        $categories = CategoriesPage::all();
+        return view('groups.post-group-id',['categories'=>$categories]);
+    }
+    public function getPostGroupCategory()
+    {
+        $categories = CategoriesPage::all();
+        return view('groups.post-group-category',['categories'=>$categories]);
     }
 
     public function getAccessTokenPage()

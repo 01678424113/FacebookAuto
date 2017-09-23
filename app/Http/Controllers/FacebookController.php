@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Cookie;
 use Illuminate\Http\Request;
 use Facebook;
+use Mockery\Exception;
+use Session;
 use URL;
 
 class FacebookController extends Controller
@@ -47,9 +51,30 @@ class FacebookController extends Controller
             $response = $this->fb->get('/me?feilds=email,name');
             $usernode = $response->getGraphUser();
             $user_name = $usernode->getName();
+            $user_id = $usernode->getId();
+            Session::put('accessToken_user',$accessToken);
+            Session::put('user_name',$user_name);
 
-            return redirect('/')->withCookies([Cookie::make('user_name', $user_name, 60),
-                                                Cookie::make('accessToken',$accessToken,60)]);
+            $user = User::where('user_id',$user_id)->first();
+            if(!empty($user)){
+                $id_user = $user->id;
+                Session::put('id_user',$id_user);
+                return redirect('/');
+            }else{
+                $user_new = new User;
+                $user_new->user_id = $user_id;
+                $user_new->name = $user_name;
+                $user_new->password = md5(123456);
+                try{
+                    $user_new->save();
+                    $user = User::where('user_id',$user_id)->first();
+                    $id_user = $user->id;
+                    Session::put('id_user',$id_user);
+                    return redirect('/');
+                }catch (Exception $e){
+                    return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu');
+                }
+            }
         } catch (\Exception $e) {
             // When Graph returns an error
             echo 'Graph returned an error: ' . $e->getMessage();
@@ -65,10 +90,7 @@ class FacebookController extends Controller
     {
         session_start();
 
-        session_destroy();
-
-        Cookie::queue(Cookie::forget('user_name'));
-        Cookie::queue(Cookie::forget('accessToken'));
+        Session::flush();
 
         return redirect('/');
     }

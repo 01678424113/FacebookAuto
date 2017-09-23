@@ -25,6 +25,15 @@ body{
       background: #f5f5f5;
       .panel-group{
         margin-bottom: -1px;
+        .panel{
+          .panel-heading{
+            .panel-title{
+              a{
+                margin-left: 10px;
+              }
+            }
+          }
+        }
       }
     }
     .content-right{
@@ -37,10 +46,26 @@ body{
           td{
             padding: 5px;
             text-align: center;
+            button{
+              a{
+                color: white;
+                &:hover{
+                  text-decoration: none;
+                }
+              }
+            }
           }
         }
         tr:first-child{
           background: rgba(128, 128, 128, 0.2);
+        }
+      }
+      .btn-add{
+        a{
+          color: white;
+          &:hover{
+            text-decoration: none;
+          }
         }
       }
     }

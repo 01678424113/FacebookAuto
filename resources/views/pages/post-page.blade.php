@@ -14,8 +14,8 @@
                         'app_secret' => env('FACEBOOK_APP_SECRET'),
                         'default_graph_version' => env('FACEBOOK_API_VERSION'),
                     ]);
-                    if ((Cookie::has('accessToken'))) {
-                        $res = $fb->get('/me/accounts', Cookie::get('accessToken'));
+                    if ((Session::has('accessToken_user'))) {
+                        $res = $fb->get('/me/accounts', Session::get('accessToken_user'));
                         $res = $res->getDecodedBody();
                         $checked = "";
                         foreach ($res['data'] as $page) {
