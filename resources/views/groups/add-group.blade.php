@@ -1,8 +1,9 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="content-right">
             <h3 class="title-content-right">Thêm group</h3>
+            <hr>
             <form class="form-horizontal" action="{{route('postAddGroup')}}" method="post">
                 {{csrf_field()}}
                 <div class="form-group">

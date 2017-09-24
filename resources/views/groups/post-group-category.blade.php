@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="content-right post-group">
             <div class="row">
                 <div class="col-md-6">
@@ -24,19 +24,22 @@
                         </form>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <!-- Lay id group-->
+                    <div class="form-group">
+                        <h3>Các id groups đã được chọn :</h3>
+                        <hr>
+                        <label for="group_ids">Id group :</label>
+                        <textarea name="group_ids" class="form-control" id="group_ids" style="width: 500px;height: 200px;"
+                                  placeholder="Nhập id các page"><?php if (isset($_POST['checkbox-page'])) {
+                                foreach ($_POST['checkbox-page'] as $value) {
+                                    echo trim($value) . ";";
+                                }
+                            } ?></textarea>
+                    </div>
+                    <!--End lay id group-->
+                </div>
             </div>
-            <!-- Lay id group-->
-            <div class="form-group">
-                <h3>Các id groups đã được chọn :</h3>
-                <label for="group_ids">Id group :</label>
-                <textarea name="group_ids" class="form-control" id="group_ids" style="width: 500px;height: 200px;"
-                          placeholder="Nhập id các page"><?php if (isset($_POST['checkbox-page'])) {
-                        foreach ($_POST['checkbox-page'] as $value) {
-                            echo trim($value) . ";";
-                        }
-                    } ?></textarea>
-            </div>
-            <!--End lay id group-->
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
                     <div>
@@ -61,9 +64,9 @@
                     <hr>
                 </div>
                 <div class="col-md-6">
-                    <h4 style="padding-top: 16px;">Monitor | <span id="timer">0</span> giây</h4>
+                    <h3>Thông báo | <span id="timer">0</span> giây</h3>
                     <hr>
-                    <div id="response" style="height:300px;padding: 10px">
+                    <div id="response" class="alert alert-info" style="height:auto;padding: 10px">
                     </div>
                 </div>
             </div>

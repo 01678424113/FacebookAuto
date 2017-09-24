@@ -1,16 +1,15 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="content-right post-group">
-            <h3>Chọn group theo id :</h3>
+            <h3>Chọn group theo ID :</h3>
             <hr>
             <!-- Lay id group-->
             <form action="{{route('postPostGroupId')}}" method="post">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="group_ids">ID group :</label>
-                    <input class="form-control" type="text" id="group_ids" name="group" value="@if(isset($_POST['group'])){{trim($_POST['group'])}}@endif
-                    ">
+                    <input class="form-control" type="text" id="group_ids" name="group" value="@if(isset($_POST['group'])){{trim($_POST['group'])}}@endif">
                 </div>
                 <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-page"
                        value="Chọn page">
@@ -19,7 +18,7 @@
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
                     <div>
-                        <h3>Post bài lên group đã chọn</h3>
+                        <h3>Đăng bài lên group đã chọn</h3>
                         <hr>
                         <div class="form-group">
                             <label for="message">Message :</label>
@@ -40,9 +39,9 @@
                     <hr>
                 </div>
                 <div class="col-md-6">
-                    <h4 style="padding-top: 16px;">Monitor | <span id="timer">0</span> giây</h4>
+                    <h3>Thông báo | <span id="timer">0</span> giây</h3>
                     <hr>
-                    <div id="response" style="height:300px;padding: 10px">
+                    <div id="response" class="alert alert-info" style="height:auto;padding: 10px">
                     </div>
                 </div>
             </div>

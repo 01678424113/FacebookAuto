@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="content-right post-page">
             <!--Show list page-->
             <div class="mt-5 mb-5">
@@ -39,36 +39,35 @@
                                 }
                             }
                             echo " <div class='checkbox'>
-                                    <label><input type='checkbox' name='checkbox-page[]' value='".$page['id']."' ".$checked.">".$page['name']." - ".$page['id']."</label>
+                                    <label><input type='checkbox' name='checkbox-page[]' value='" . $page['id'] . "' " . $checked . ">" . $page['name'] . " - " . $page['id'] . "</label>
                                    </div>";
                         }
                     }
                     ?>
-                    <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-page" value="Chọn page">
+                    <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-page"
+                           value="Chọn page">
                 </form>
             </div>
             <!--End show list page-->
             <!-- Lay access token-->
-            <div>
-                <form action="{{route('getAccessTokenPage')}}" method="post">
-                    {{csrf_field()}}
-                        <textarea name="page_ids" id="page_ids" style="width: 500px;height: 200px;"
-                                  placeholder="Nhập id các page" hidden>
+            <form action="{{route('getAccessTokenPage')}}" method="post">
+                {{csrf_field()}}
+                <textarea name="page_ids" id="page_ids" style="width: 500px;height: 200px;"
+                          placeholder="Nhập id các page" hidden>
                             <?php
-                            if (isset($_POST['checkbox-page'])) {
-                                foreach ($_POST['checkbox-page'] as $value) {
-                                    echo trim($value) . ";";
-                                }
-                            } else if (Session::get('page_ids')) {
-                                foreach (Session::get('page_ids') as $page_id) {
-                                    echo trim($page_id) . ";";
-                                }
-                            }
-                            ?>
+                    if (isset($_POST['checkbox-page'])) {
+                        foreach ($_POST['checkbox-page'] as $value) {
+                            echo trim($value) . ";";
+                        }
+                    } else if (Session::get('page_ids')) {
+                        foreach (Session::get('page_ids') as $page_id) {
+                            echo trim($page_id) . ";";
+                        }
+                    }
+                    ?>
                         </textarea><br>
-                    <input type="submit" class="btn btn-info" value="Lấy accesstoken">
-                </form>
-            </div>
+                <input type="submit" class="btn btn-info" value="Lấy accesstoken">
+            </form>
             <!--End lay access token-->
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
@@ -104,10 +103,10 @@
                     </div>
                     <hr>
                 </div>
-                <div class="col-md-6" >
-                    <h4 style="padding-top: 16px;">Monitor | <span id="timer">0</span> giây</h4>
+                <div class="col-md-6">
+                    <h3>Thông báo | <span id="timer">0</span> giây</h3>
                     <hr>
-                    <div id="response" style="height:300px;padding: 10px">
+                    <div id="response" class="alert alert-info" style="height:auto;padding: 10px">
                     </div>
                 </div>
             </div>

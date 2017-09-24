@@ -1,8 +1,9 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="content-right show-page">
-            <h3 class="title-content-right">Danh sách page</h3>
+            <h3 class="title-content-right">Danh sách group</h3>
+            <hr>
             <table class="table-hover" style="width: 100%">
                 <tr>
                     <td>ID</td>
@@ -27,7 +28,7 @@
                     </tr>
                 @endforeach
             </table>
-            <button class="btn btn-info btn-add"><a href="{{route('getAddGroup')}}">Add page</a></button>
+            <button class="btn btn-info btn-add"><a href="{{route('getAddGroup')}}">Add group</a></button>
         </div>
         @if(session('message'))
             <div class="alert alert-success">

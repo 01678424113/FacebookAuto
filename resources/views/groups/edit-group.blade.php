@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="content-right">
             <h3 class="title-content-right">Sửa page : {{$group->group_name}}</h3>
             <form class="form-horizontal" action="{{route('postEditGroup',$group->id)}}" method="post">
