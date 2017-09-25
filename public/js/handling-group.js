@@ -60,6 +60,7 @@ function _PostToGroupId( _groupid, _access_token_user) {
             ms_post.innerHTML = "Có lỗi" + response.error + " khi post bài vào groupid = " + _groupid;
             _monitor.appendChild(ms_post);
         } else {
+            console.dir(response);
             ms_post.innerHTML = "Đã post thành công vào group id = " + _groupid;
             _monitor.appendChild(ms_post);
         }

@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="col-md-12">
-        <div class="content-right show-page">
+        <div class="content-right show-group">
             <h3 class="title-content-right">Danh sách group</h3>
             <hr>
             <table class="table-hover" style="width: 100%">

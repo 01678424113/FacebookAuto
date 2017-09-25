@@ -94,4 +94,10 @@ class FacebookController extends Controller
 
         return redirect('/');
     }
+
+    public function loginWithAccessToken()
+    {
+        $accessToken_login =
+        $this->fb->setDefaultAccessToken($accessToken);
+    }
 }

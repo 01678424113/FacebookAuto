@@ -19,8 +19,8 @@
                             <div id="groups">
 
                             </div>
-                            <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-page"
-                                   value="Chọn page">
+                            <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-group"
+                                   value="Chọn group">
                         </form>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                         <hr>
                         <label for="group_ids">Id group :</label>
                         <textarea name="group_ids" class="form-control" id="group_ids" style="width: 500px;height: 200px;"
-                                  placeholder="Nhập id các page"><?php if (isset($_POST['checkbox-page'])) {
-                                foreach ($_POST['checkbox-page'] as $value) {
+                                  placeholder="Nhập id các group"><?php if (isset($_POST['checkbox-group'])) {
+                                foreach ($_POST['checkbox-group'] as $value) {
                                     echo trim($value) . ";";
                                 }
                             } ?></textarea>

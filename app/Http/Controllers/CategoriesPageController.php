@@ -18,12 +18,6 @@ use Session;
 
 class CategoriesPageController extends Controller
 {
-
-    public function getPostPage()
-    {
-        return view('pages.post-page');
-    }
-
     public function getPostGroupMe()
     {
 
@@ -40,6 +34,10 @@ class CategoriesPageController extends Controller
         return view('groups.post-group-category',['categories'=>$categories]);
     }
 
+    public function getPostPage()
+    {
+        return view('pages.post-page');
+    }
     public function getAccessTokenPage()
     {
         session_start();
@@ -100,8 +98,7 @@ class CategoriesPageController extends Controller
 
     public function reset()
     {
-        session_start();
-        Session::flush();
+        $_POST = [''];
         return redirect()->back();
     }
 
