@@ -8,14 +8,7 @@
                  <li><a href="#">Page 2</a></li>
              </ul>-->
             <ul class="nav navbar-nav navbar-right" >
-
-                @if(!(Session::has('user_name')))
-                    <li>
-                        <a href="{{route('login')}}">
-                            <button class="btn btn-default" id="login">Login now</button>
-                        </a>
-                    </li>
-                @else
+                @if((Session::has('user_name')))
                     <li>
                         <button type="button" class="btn btn-success" data-toggle="dropdown" style="margin-top: 5px">
                             {{Session::get('user_name')}}

@@ -10,14 +10,15 @@
                     {{csrf_field()}}
                     <?php
                     $fb = new Facebook\Facebook([
-                        'app_id' => env('FACEBOOK_APP_ID'),
-                        'app_secret' => env('FACEBOOK_APP_SECRET'),
+                        'app_id' => env('FACEBOOK_APP_ID_ANDROID'),
+                        'app_secret' => env('FACEBOOK_APP_SECRET_ANDROID'),
                         'default_graph_version' => env('FACEBOOK_API_VERSION'),
                     ]);
                     if ((Session::has('accessToken_user'))) {
                         $res = $fb->get('/me/accounts', Session::get('accessToken_user'));
                         $res = $res->getDecodedBody();
                         $checked = "";
+
                         foreach ($res['data'] as $page) {
                             if (isset($_POST['checkbox-page'])) {
                                 foreach ($_POST['checkbox-page'] as $value) {
@@ -66,7 +67,6 @@
                     }
                     ?>
                         </textarea><br>
-                <input type="submit" class="btn btn-info" value="Lấy accesstoken">
             </form>
             <!--End lay access token-->
             <div class="row mt-5 mb-5">
@@ -75,13 +75,9 @@
                         <h3>Post bài lên page đã chọn</h3>
                         <hr>
                         <textarea name="access_token" id="access_token_page" style="width: 100%;height: 200px;" hidden>
-                            <?php
-                            if (Session::get('list_access_token') && count(Session::get('list_access_token')) > 0) {
-                                foreach (Session::get('list_access_token') as $access_token_page) {
-                                    echo $access_token_page . ";";
-                                }
-                            }
-                            ?>
+                            @if(Session::has('accessToken_user'))
+                                {{trim(Session::get('accessToken_user'))}}
+                            @endif
                             </textarea><br>
                         <div class="form-group">
                             <label for="link">Link :</label>

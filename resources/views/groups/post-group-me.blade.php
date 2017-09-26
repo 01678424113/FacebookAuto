@@ -12,8 +12,8 @@
                             {{csrf_field()}}
                             <?php
                             $fb = new Facebook\Facebook([
-                                'app_id' => env('FACEBOOK_APP_ID'),
-                                'app_secret' => env('FACEBOOK_APP_SECRET'),
+                                'app_id' => env('FACEBOOK_APP_ID_ANDROID'),
+                                'app_secret' => env('FACEBOOK_APP_SECRET_ANDROID'),
                                 'default_graph_version' => env('FACEBOOK_API_VERSION'),
                             ]);
                             if (Session::has('accessToken_user')) {
@@ -69,7 +69,7 @@
                             <label for="message">Message :</label>
                             <input type="text" class="form-control" name="message" id="message">
                         </div>
-                        <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
+                        <textarea name="access_token_user" style="width: 500px;height: 200px;"
                                   id="access_token_user"><?php if (Session::has('accessToken_user')) {
                                 echo Session::get('accessToken_user');
                             }?></textarea>

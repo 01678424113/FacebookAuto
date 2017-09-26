@@ -20,7 +20,6 @@ class CategoriesPageController extends Controller
 {
     public function getPostGroupMe()
     {
-
         return view('groups.post-group-me');
     }
     public function getPostGroupId()
@@ -45,8 +44,8 @@ class CategoriesPageController extends Controller
         $access_token_user = Session::get('accessToken_user');
         $app = new FacebookApp(env('FACEBOOK_APP_ID'), env('FACEBOOK_APP_SECRET'));
         $fb = new Facebook\Facebook([
-            'app_id' => env('FACEBOOK_APP_ID'),
-            'app_secret' => env('FACEBOOK_APP_SECRET'),
+            'app_id' => env('FACEBOOK_APP_ID_ANDROID'),
+            'app_secret' => env('FACEBOOK_APP_SECRET_ANDROID'),
             'default_graph_version' => env('FACEBOOK_API_VERSION'),
         ]);
         //Khởi tạo biến session chứa mảng các access token page

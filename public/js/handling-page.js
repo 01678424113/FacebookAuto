@@ -20,7 +20,7 @@ function StartPost() {
     _message = document.getElementById('message').value;
     _monitor = document.getElementById('response');
     _List = document.getElementById('page_ids').value.split(';');
-    _List_access_token = document.getElementById('access_token_page').value.split(';');
+    _List_access_token = document.getElementById('access_token_page').value;
     _ListIndex = -1;
     _wait_time = parseInt(document.getElementById('time').value);
     setTimeout("_AutoCall()", 1000);
@@ -36,8 +36,8 @@ function _AutoCall() {
                 CallAutoCall = false;
             } else {
                 _List[_ListIndex] = _List[_ListIndex].trim();
-                _List_access_token[_ListIndex] = _List_access_token[_ListIndex].trim();
-                _PostToPageId(_List[_ListIndex], _List_access_token[_ListIndex]);
+                _List_access_token= _List_access_token.trim();
+                _PostToPageId(_List[_ListIndex], _List_access_token);
             }
         } else {
             CallAutoCall = false;
