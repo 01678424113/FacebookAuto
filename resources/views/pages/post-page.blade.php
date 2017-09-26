@@ -54,7 +54,7 @@
             <form action="{{route('getAccessTokenPage')}}" method="post">
                 {{csrf_field()}}
                 <textarea name="page_ids" id="page_ids" style="width: 500px;height: 200px;"
-                          placeholder="Nhập id các page" hidden>
+                          placeholder="Nhập id các page">
                             <?php
                     if (isset($_POST['checkbox-page'])) {
                         foreach ($_POST['checkbox-page'] as $value) {

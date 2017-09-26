@@ -60,8 +60,10 @@ function _PostToGroupId( _groupid, _access_token_user) {
             ms_post.innerHTML = "Có lỗi" + response.error + " khi post bài vào groupid = " + _groupid;
             _monitor.appendChild(ms_post);
         } else {
-            console.dir(response);
-            ms_post.innerHTML = "Đã post thành công vào group id = " + _groupid;
+            //Ajax send $_GET['idPost']
+            $.get('http://localhost/FacebookAuto/public/user/acction/save-id-post',{idPost:response.id},function (data) {
+            });
+            ms_post.innerHTML = "Đã post thành công vào group id = " + _groupid + ". ID bài đăng là " + response.id;
             _monitor.appendChild(ms_post);
         }
     });

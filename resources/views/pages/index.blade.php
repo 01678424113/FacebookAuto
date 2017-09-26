@@ -6,7 +6,7 @@
                 đầy đủ các chức năng. Click dưới để tiếp tục</p>
             <div class="btn btn-default"><a href="{{route('getAccessTokenFull')}}">Click now</a></div>
         </div>
-    @else
+    @elseif(!empty($user->access_token_full))
         <div class="col-md-4 col-md-offset-4 text-center">
             <p class="alert alert-success" style="color: black">Lấy access token full quyền thành công. Bạn có thể sử dụng các tính năng chúng tôi cung cấp</p>
         </div>

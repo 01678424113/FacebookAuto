@@ -30,7 +30,7 @@ function _AutoCall() {
     if (_wait_time === 0) {
         _wait_time = parseInt(document.getElementById('time').value);
         _ListIndex++;
-        if (_ListIndex < _List.length) {
+        if (_ListIndex < (_List.length-1)) {
             //Delete space
             if (_List[_ListIndex] === "") {
                 CallAutoCall = false;
@@ -67,8 +67,9 @@ function _PostToPageId(_pageid, _access_token_page) {
             ms_post.innerHTML = "Có lỗi" + response.error + " khi post bài vào pageid = " + _pageid;
             _monitor.appendChild(ms_post);
         } else {
-            /* alert(_groupid);
-             document.getElementById('postid').value = response.id;*/
+            //Ajax send $_GET['idPost']
+           $.get('http://localhost/FacebookAuto/public/user/acction/save-id-post',{idPost:response.id},function (data) {
+           });
             ms_post.innerHTML = "Đã post thành công vào page id = " + _pageid;
             _monitor.appendChild(ms_post);
         }

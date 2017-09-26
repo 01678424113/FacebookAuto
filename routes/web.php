@@ -53,6 +53,8 @@ Route::group(['prefix'=>'user','middleware'=>'userLogin'],function (){
         Route::group(['prefix'=>'ajax'],function (){
             Route::get('/group/{id_category}','AjaxController@getListGroup')->name('ajaxGroup');
         });
+
+        Route::get('/save-id-post','GroupController@saveIdPost');
     });
 });
 

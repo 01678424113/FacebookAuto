@@ -3,17 +3,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-md-offset-2">
+                <h3>Đăng nhập bằng tài khoản Facebook</h3>
                 <form action="{{route('postAccessTokenFull')}}" method="post">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label for="username">Username :</label>
+                        <label for="username">Tên đăng nhập :</label>
                         <input type="text" class="form-control" name="username" id="username" placeholder="Tên đăng nhập facebook">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password:</label>
+                        <label for="password">Mật khẩu:</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
-                    <button id="click" type="submit" class="btn btn-default">Lấy access token</button>
+                    <button id="click" type="submit" class="btn btn-default">Đăng nhập</button>
                 </form>
             </div>
         </div>

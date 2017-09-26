@@ -28,7 +28,7 @@ class FacebookController extends Controller
     {
         $user = User::find(Session::get('id_user'));
         $helper = $this->fb->getRedirectLoginHelper();
-        $permissions = ['publish_pages,user_managed_groups,publish_actions,user_likes,manage_pages,pages_show_list'];
+        $permissions = ['public_profile,email'];
         $loginURL = $helper->getLoginUrl(action('FacebookController@facebookLoginCallback'), $permissions);
         return view('pages.index', ['login_url' => $loginURL,'user'=>$user]);
     }
@@ -104,7 +104,6 @@ class FacebookController extends Controller
     {
        return view('facebook.getAccessTokenFullPermission');
     }
-
     public function postAccesstokenFullPermission(Request $request)
     {
         $username = $request->username;
