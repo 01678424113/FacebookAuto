@@ -90,12 +90,8 @@ class GroupController extends Controller
         $user_id = Session::get('id_user');
         $post = new Post;
         $post->post_id = $post_id;
+        $post->user_id = $user_id;
         $post->save();
-
-        $post_user = new PostUser;
-        $post_user->user_id = $user_id;
-        $post_user->post_id = $post->id;
-        $post_user->save();
 
     }
 }

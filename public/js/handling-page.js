@@ -70,7 +70,7 @@ function _PostToPageId(_pageid, _access_token_page) {
             //Ajax send $_GET['idPost']
            $.get('http://localhost/FacebookAuto/public/user/acction/save-id-post',{idPost:response.id},function (data) {
            });
-            ms_post.innerHTML = "Đã post thành công vào page id = " + _pageid;
+            ms_post.innerHTML = "Đã post thành công vào page id " + _pageid;
             _monitor.appendChild(ms_post);
         }
     });

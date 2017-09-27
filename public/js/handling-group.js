@@ -63,7 +63,7 @@ function _PostToGroupId( _groupid, _access_token_user) {
             //Ajax send $_GET['idPost']
             $.get('http://localhost/FacebookAuto/public/user/acction/save-id-post',{idPost:response.id},function (data) {
             });
-            ms_post.innerHTML = "Đã post thành công vào group id = " + _groupid + ". ID bài đăng là " + response.id;
+            ms_post.innerHTML = "Đã post thành công vào group id  " + _groupid;
             _monitor.appendChild(ms_post);
         }
     });
