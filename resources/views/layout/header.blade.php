@@ -10,11 +10,7 @@
             <ul class="nav navbar-nav navbar-right" >
 
                 @if(!(Session::has('user_name')))
-                    <li>
-                        <a href="{{route('login')}}">
-                            <button class="btn btn-default" id="login">Login now</button>
-                        </a>
-                    </li>
+
                 @else
                     <li>
                         <button type="button" class="btn btn-success" data-toggle="dropdown" style="margin-top: 5px">

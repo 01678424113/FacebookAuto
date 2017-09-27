@@ -53,7 +53,7 @@
             <!-- Lay access token-->
             <form action="{{route('getAccessTokenPage')}}" method="post">
                 {{csrf_field()}}
-                <textarea name="page_ids" id="page_ids" style="width: 500px;height: 200px;"
+                <textarea hidden name="page_ids" id="page_ids" style="width: 500px;height: 200px;"
                           placeholder="Nhập id các page">
                             <?php
                     if (isset($_POST['checkbox-page'])) {
@@ -72,7 +72,7 @@
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
                     <div>
-                        <h3>Post bài lên page đã chọn</h3>
+                        <h3>Đăng bài lên page đã chọn</h3>
                         <hr>
                         <textarea name="access_token" id="access_token_page" style="width: 100%;height: 200px;" hidden>
                             @if(Session::has('accessToken_user'))

@@ -19,6 +19,7 @@ function StartPostGroup() {
     _List = document.getElementById('group_ids').value.split(';');
     _ListIndex = -1;
     _wait_time = parseInt(document.getElementById('time').value);
+    _wait_time = _wait_time + Math.floor(Math.random()*20);
     setTimeout("_AutoCallGroup()", 1000);
 }
 function _AutoCallGroup() {
@@ -65,6 +66,7 @@ function _PostToGroupId( _groupid, _access_token_user) {
             });
             ms_post.innerHTML = "Đã post thành công vào group id  " + _groupid;
             _monitor.appendChild(ms_post);
+            _wait_time = _wait_time + Math.floor(Math.random()*20);
         }
     });
 }

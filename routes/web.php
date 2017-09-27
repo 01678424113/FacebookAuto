@@ -50,6 +50,8 @@ Route::group(['prefix'=>'user','middleware'=>'userLogin'],function (){
         Route::get('/groups-category', 'CategoriesPageController@getPostGroupCategory')->name('getPostGroupCategory');
         Route::post('groups-category','CategoriesPageController@getPostGroupCategory')->name('postPostGroupCategory');
 
+        Route::get('posts','PostController@index')->name('getPosts');
+
         Route::group(['prefix'=>'ajax'],function (){
             Route::get('/group/{id_category}','AjaxController@getListGroup')->name('ajaxGroup');
         });

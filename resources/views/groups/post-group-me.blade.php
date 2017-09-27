@@ -69,7 +69,7 @@
                             <label for="message">Message :</label>
                             <input type="text" class="form-control" name="message" id="message">
                         </div>
-                        <textarea name="access_token_user" style="width: 500px;height: 200px;"
+                        <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
                                   id="access_token_user"><?php if (Session::has('accessToken_user')) {
                                 echo Session::get('accessToken_user');
                             }?></textarea>

@@ -37,5 +37,21 @@
             </div>
         </div>
     </div>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <i class="fa fa-apple" aria-hidden="true"></i>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Bài đăng</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="{{route('getPosts')}}">Lịch sử đăng</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 

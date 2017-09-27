@@ -23,6 +23,7 @@ function StartPost() {
     _List_access_token = document.getElementById('access_token_page').value;
     _ListIndex = -1;
     _wait_time = parseInt(document.getElementById('time').value);
+    _wait_time = _wait_time + Math.floor(Math.random()*20);
     setTimeout("_AutoCall()", 1000);
 }
 function _AutoCall() {
@@ -72,6 +73,7 @@ function _PostToPageId(_pageid, _access_token_page) {
            });
             ms_post.innerHTML = "Đã post thành công vào page id " + _pageid;
             _monitor.appendChild(ms_post);
+            _wait_time = _wait_time + Math.floor(Math.random()*20);
         }
     });
 }

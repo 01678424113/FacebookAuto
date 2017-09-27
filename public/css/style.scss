@@ -1,4 +1,4 @@
-.col-no-padding{
+.col-no-padding {
   padding: 0;
 }
 
@@ -24,7 +24,7 @@ body {
   .menu-left {
     height: 1000px;
     background: #2A3F54;
-    .logo{
+    .logo {
       font-weight: 900;
       font-family: cursive;
       color: white;
@@ -42,27 +42,27 @@ body {
           .panel-title {
             a {
               margin-left: 10px;
-              &:hover{
+              &:hover {
                 text-decoration: none;
               }
             }
           }
-          &:hover{
+          &:hover {
             background: #dcdada;
           }
         }
-        .panel-collapse{
-          ul{
-            li{
-              a{
+        .panel-collapse {
+          ul {
+            li {
+              a {
                 color: black;
-                &:hover{
+                &:hover {
                   text-decoration: none;
                 }
               }
-              &:hover{
-                background:#2A3F54;
-                a{
+              &:hover {
+                background: #2A3F54;
+                a {
                   color: white;
                 }
               }
@@ -103,6 +103,14 @@ body {
           text-decoration: none;
         }
       }
+    }
+  }
+  .footer {
+    height: 30px;
+    background: rgb(36, 50, 64);
+    p {
+      color: white;
+      line-height: 30px;
     }
   }
 }

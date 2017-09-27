@@ -63,6 +63,12 @@ body .content-right {
     color: white; }
     body .content-right .btn-add a:hover {
       text-decoration: none; }
+body .footer {
+  height: 30px;
+  background: #243240; }
+  body .footer p {
+    color: white;
+    line-height: 30px; }
 
 /***********************************************Page***************************************************/
 body .content-right {
