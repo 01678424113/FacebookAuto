@@ -1,9 +1,9 @@
 <?php
 /***
-***			Facebook Android Access_Token:ShareFBScripts
-***				Copyright (c) 2016 @ ShareFBScripts.BlogSpot.Com
-***						ShareFBScripts
-**/
+ ***            Facebook Android Access_Token:ShareFBScripts
+ ***                Copyright (c) 2016 @ ShareFBScripts.BlogSpot.Com
+ ***                        ShareFBScripts
+ **/
 error_reporting(E_ALL);
 header('Origin: https://facebook.com');
 define('API_SECRET', '62f8ce9f74b12f84c123cc23437a4a32');

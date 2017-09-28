@@ -69,6 +69,10 @@
                             <label for="message">Message :</label>
                             <input type="text" class="form-control" name="message" id="message">
                         </div>
+                        <div class="form-group">
+                            <label for="message">Link :</label>
+                            <input type="url" class="form-control" name="link" id="link">
+                        </div>
                         <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
                                   id="access_token_user"><?php if (Session::has('accessToken_user')) {
                                 echo Session::get('accessToken_user');
