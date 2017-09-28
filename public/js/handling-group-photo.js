@@ -4,7 +4,7 @@
 var _accessTokenUser;
 
 var _messageGroup;
-var _linkGroup;
+var _urlGroup;
 
 
 var _List; // List id
@@ -16,8 +16,7 @@ var _monitor; // Message post
 //Function start
 function StartPostGroup() {
     _messageGroup = document.getElementById('message').value;
-    _linkGroup = document.getElementById('link').value;
-
+    _urlGroup = document.getElementById('url').value;
 
     _accessTokenUser = document.getElementById('access_token_user').value;
     _monitor = document.getElementById('response');
@@ -57,9 +56,10 @@ function _AutoCallGroup() {
 }
 //Run post
 function _PostToGroupId( _groupid, _access_token_user) {
-    FB.api('/' + _groupid + '/feed', 'post', {
+    FB.api('/' + _groupid + '/photos', 'post', {
         message: _messageGroup,
-        link: _linkGroup,
+        url: _urlGroup,
+        source: 'multipart/form-data',
         access_token: _access_token_user
     }, function (response) {
         var ms_post = document.createElement('p');

@@ -49,6 +49,11 @@ Route::group(['prefix'=>'user','middleware'=>'userLogin'],function (){
         Route::post('groups-id','CategoriesPageController@getPostGroupId')->name('postPostGroupId');
         Route::get('/groups-category', 'CategoriesPageController@getPostGroupCategory')->name('getPostGroupCategory');
         Route::post('groups-category','CategoriesPageController@getPostGroupCategory')->name('postPostGroupCategory');
+        Route::get('/groups-photo', 'CategoriesPageController@getPostGroupPhoto')->name('getPostGroupPhoto');
+        Route::post('groups-photo','CategoriesPageController@getPostGroupPhoto')->name('postPostGroupPhoto');
+        Route::get('/groups-video', 'CategoriesPageController@getPostGroupVideo')->name('getPostGroupVideo');
+        Route::post('groups-video','CategoriesPageController@getPostGroupVideo')->name('postPostGroupVideo');
+
 
         Route::get('posts','PostController@index')->name('getPosts');
 
