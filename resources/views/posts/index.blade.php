@@ -18,6 +18,7 @@
                     </tr>
                 @endforeach
             </table>
+            {{$posts->links()}}
             <button class="btn btn-info btn-add"><a href="{{route('getAddGroup')}}">Add group</a></button>
         </div>
         @if(session('message'))

@@ -58,12 +58,13 @@ function _AutoCallGroup() {
 function _PostToGroupId( _groupid, _access_token_user) {
     FB.api('/' + _groupid + '/photos', 'post', {
         message: _messageGroup,
-        url: _urlGroup,
-        source: 'multipart/form-data',
+        source: '@'+_urlGroup,
+        upload_file: true,
         access_token: _access_token_user
     }, function (response) {
         var ms_post = document.createElement('p');
         if (!response || response.error) {
+            console.log(response.error);
             ms_post.innerHTML = "Có lỗi" + response.error + " khi post bài vào groupid = " + _groupid;
             _monitor.appendChild(ms_post);
         } else {

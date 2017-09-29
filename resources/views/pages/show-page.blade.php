@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-12">
+    <div class="col-md-12 ">
         <div class="content-right show-page">
             <h3 class="title-content-right">Danh sách page</h3>
             <hr>

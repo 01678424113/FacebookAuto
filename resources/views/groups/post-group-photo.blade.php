@@ -67,27 +67,30 @@
                     <div>
                         <h3>Đăng ảnh lên group đã chọn</h3>
                         <hr>
-                        <div class="form-group">
-                            <label for="message">Message :</label>
-                            <input type="text" class="form-control" name="message" id="message">
-                        </div>
-                        <div class="form-group">
-                            <label for="url">URL ảnh :</label>
-                            <input type="url" class="form-control" name="url" id="url">
-                        </div>
-                        <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
-                                  id="access_token_user"><?php if (Session::has('accessToken_user')) {
-                                echo Session::get('accessToken_user');
-                            }?></textarea>
-                        <br>
-                        <div class="form-group">
-                            <label for="time">Tự đăng sau :</label>
-                            <input type="number" class="form-control" name="time" id="time">
-                        </div>
-                        <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPostGroup()">
+                        <form enctype="multipart/form-data" method="post">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <label for="message">Message :</label>
+                                <input type="text" class="form-control" name="message" id="message">
+                            </div>
+                            <div class="form-group">
+                                <label for="url">URL ảnh :</label>
+                                <input type="file" class="form-control" name="url" id="url">
+                            </div>
+                            <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
+                                      id="access_token_user"><?php if (Session::has('accessToken_user')) {
+                                    echo Session::get('accessToken_user');
+                                }?></textarea>
+                            <br>
+
+                            <div class="form-group">
+                                <label for="time">Tự đăng sau :</label>
+                                <input type="number" class="form-control" name="time" id="time">
+                            </div>
+                            <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPostGroup()">
+                        </form>
                         <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                     </div>
-
                     <hr>
                 </div>
                 <div class="col-md-6">

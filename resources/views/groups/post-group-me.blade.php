@@ -2,7 +2,7 @@
 @section('content')
     <div class="col-md-12">
         <div class="content-right post-group">
-            <div class="row">
+            <div class="row alert alert-success">
                 <div class="col-md-6">
                     <!--Show list group-->
                     <div class="mt-5 mb-5">
@@ -45,6 +45,12 @@
                     <!--End show list group-->
                 </div>
                 <div class="col-md-6">
+                    <h3>Thông báo | <span id="timer">0</span> giây</h3>
+                    <hr>
+                    <div id="response" class="" style="height:auto;padding: 10px">
+                    </div>
+                </div>
+                <div class="col-md-6 hidden">
                     <!-- Lay id group-->
                     <div class="form-group">
                         <h3>Các id groups đã được chọn :</h3>
@@ -60,8 +66,8 @@
                     <!--End lay id group-->
                 </div>
             </div>
-            <div class="row mt-5 mb-5">
-                <div class="col-md-6">
+            <div class="row mt-5 mb-5 alert alert-info">
+                <div class="col-md-6 col-md-offset-3">
                     <div>
                         <h3>Đăng bài lên group đã chọn</h3>
                         <hr>
@@ -87,14 +93,6 @@
                     </div>
                     <hr>
                 </div>
-                <div class="col-md-6">
-                    <h3>Thông báo | <span id="timer">0</span> giây</h3>
-                    <hr>
-                    <div id="response" class="alert alert-info" style="height:auto;padding: 10px">
-                    </div>
-                </div>
-
-
             </div>
         </div>
     </div>

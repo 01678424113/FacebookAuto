@@ -29,7 +29,7 @@
                 <ul class="list-group">
                     <li class="list-group-item"><a href="{{route('getPostGroupMe')}}">Đăng lên group của bạn</a></li>
                     <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên group theo id</a></li>
-                    <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên group theo thểloại</a></li>
+                    <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên group theo thể loại</a></li>
                     <li class="list-group-item"><a href="{{route('getPostGroupPhoto')}}">Đăng ảnh group của bạn</a></li>
                     <li class="list-group-item"><a href="{{route('getPostGroupVideo')}}">Đăng video group của bạn</a></li>
                     <li class="list-group-item"><a href="{{route('showGroup')}}">Danh sách group</a></li>
