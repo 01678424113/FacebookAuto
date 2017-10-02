@@ -6,8 +6,9 @@
     background-color: #2e353d;
     top: 0px;
     width: 225px;
-    height: 125%;
+    height: 100%;
     color: #e1ffff;
+    position: fixed;
 }
 
 .nav-side-menu .brand a {

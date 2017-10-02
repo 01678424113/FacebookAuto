@@ -17,7 +17,7 @@
                                 'default_graph_version' => env('FACEBOOK_API_VERSION'),
                             ]);
                             if (Session::has('accessToken_user')) {
-                                $res = $fb->get('/me/groups', Session::get('accessToken_user'));
+                                $res = $fb->get('/me/groups?limit=9999', Session::get('accessToken_user'));
                                 $res = $res->getDecodedBody();
                                 $checked = "";
                                 foreach ($res['data'] as $group) {

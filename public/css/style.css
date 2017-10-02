@@ -33,7 +33,8 @@ body .footer {
   background: #243240; }
   body .footer p {
     color: white;
-    line-height: 30px; }
+    line-height: 30px;
+    margin-bottom: 0; }
 
 /***********************************************Page***************************************************/
 body .content-right .form-horizontal {

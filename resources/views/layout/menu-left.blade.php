@@ -25,8 +25,8 @@
             </li>
             <ul class="sub-menu collapse" id="group">
                 <li class="list-group-item"><a href="{{route('getPostGroupMe')}}">Đăng lên group của bạn</a></li>
-                <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên group theo id</a></li>
-                <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên group theo thể loại</a></li>
+                <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên theo id</a></li>
+                <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên theo thể loại</a></li>
                 <li class="list-group-item"><a href="{{route('showGroup')}}">Group đã thêm</a></li>
             </ul>
 
