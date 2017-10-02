@@ -11,13 +11,12 @@
                 </a>
             </li>
             {{--Page--}}
-            <li  data-toggle="collapse" data-target="#page" class="collapsed active">
+            <li  data-toggle="collapse" data-target="#page" class="collapsed ">
                 <a href="#"><i class="fa fa-gift fa-lg"></i> Page <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="page">
-                <li class="list-group-item active"><a href="{{route('getPostPage')}}">Đăng lên page</a></li>
+                <li class="list-group-item"><a href="{{route('getPostPage')}}">Đăng lên page</a></li>
                 <li class="list-group-item"><a href="{{route('showPage')}}">Danh sách page</a></li>
-                <li class="list-group-item"><a href="{{route('getAddPage')}}">Thêm page</a></li>
             </ul>
 
             {{--Group--}}
@@ -28,9 +27,7 @@
                 <li class="list-group-item"><a href="{{route('getPostGroupMe')}}">Đăng lên group của bạn</a></li>
                 <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên group theo id</a></li>
                 <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên group theo thể loại</a></li>
-                <li class="list-group-item"><a href="{{route('getPostGroupPhoto')}}">Đăng ảnh group của bạn</a></li>
-                <li class="list-group-item"><a href="{{route('getPostGroupVideo')}}">Đăng video group của bạn</a></li>
-                <li class="list-group-item"><a href="{{route('showGroup')}}">Danh sách group</a></li>
+                <li class="list-group-item"><a href="{{route('showGroup')}}">Group đã thêm</a></li>
             </ul>
 
             {{--History--}}

@@ -33,16 +33,6 @@ class CategoriesPageController extends Controller
         return view('groups.post-group-category',['categories'=>$categories]);
     }
 
-    public function getPostGroupPhoto()
-    {
-        return view('groups.post-group-photo');
-    }
-
-    public function getPostGroupVideo()
-    {
-        return view('groups.post-group-video');
-    }
-
     public function getPostPage()
     {
         return view('pages.post-page');

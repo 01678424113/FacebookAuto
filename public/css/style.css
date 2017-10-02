@@ -5,6 +5,9 @@ body .navbar {
   border-radius: 0; }
 body .post-me {
   line-height: 25px; }
+body .form-post {
+  padding: 25px;
+  padding-top: 0; }
 body .content-right {
   padding: 40px;
   padding-top: 0; }
@@ -33,9 +36,7 @@ body .footer {
     line-height: 30px; }
 
 /***********************************************Page***************************************************/
-body .content-right {
-  margin-bottom: 10px; }
-  body .content-right .form-horizontal {
-    max-width: 500px; }
+body .content-right .form-horizontal {
+  max-width: 500px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -9,6 +9,10 @@ body {
   .post-me {
     line-height: 25px;
   }
+  .form-post{
+    padding: 25px;
+    padding-top: 0;
+  }
   .content-right {
     padding: 40px;
     padding-top: 0;
@@ -55,7 +59,6 @@ body {
 /***********************************************Page***************************************************/
 body {
   .content-right {
-    margin-bottom: 10px;
     .title-content-right {
     }
     .form-horizontal {

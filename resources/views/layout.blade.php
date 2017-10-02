@@ -14,6 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu-left.css">
+    <link rel="stylesheet" href="css/tabs-post.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -45,6 +46,7 @@
         crossorigin="anonymous"></script>
 <script src="js/effect.js"></script>
 @yield('script')
+@push('script')
 
 </body>
 </html>
