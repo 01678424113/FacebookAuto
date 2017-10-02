@@ -101,4 +101,53 @@ class CategoriesPageController extends Controller
         return redirect()->back();
     }
 
+    public function index()
+    {
+        $categories = CategoriesPage::all();
+        return view('category.show',['categories'=>$categories]);
+    }
+
+    public function getEdit($id)
+    {
+        $category = CategoriesPage::find($id);
+        return view('category.edit',['category'=>$category]);
+    }
+
+    public function getAdd()
+    {
+        return view('category.add');
+    }
+
+    public function postAdd(Request $request)
+    {
+        $category = new CategoriesPage;
+        $category->name = $request->category_name;
+        try{
+            $category->save();
+            return redirect()->route('showCategory')->with('message','Đã thêm thành công !');
+        }catch (Exception $e){
+            return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu !');
+        }
+    }
+
+    public function postEdit(Request $request,$id)
+    {
+        $category = CategoriesPage::find($id);
+        $category->name = $request->category_name;
+
+        try{
+            $category->save();
+            return redirect()->route('showCategory')->with('message','Sửa thành công !');
+        }catch (Exception $e){
+            return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu !');
+        }
+    }
+
+    public function delete($id)
+    {
+        $category = CategoriesPage::find($id);
+        $category->delete();
+        return redirect()->back()->with('message','Đã xóa thành công !!');
+    }
+
 }

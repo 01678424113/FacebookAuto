@@ -37,6 +37,15 @@
             <ul class="sub-menu collapse" id="history">
                 <li class="list-group-item"><a href="{{route('getPosts')}}">Lịch sử đăng</a></li>
             </ul>
+
+            {{--Category--}}
+            <li  data-toggle="collapse" data-target="#category" class="collapsed">
+                <a href="#"><i class="fa fa-gift fa-lg"></i> Quản lí thể loại <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="category">
+                <li class="list-group-item"><a href="{{route('showCategory')}}">Danh sách</a></li>
+            </ul>
+
             <li>
                 <a href="#">
                     <i class="fa fa-user fa-lg"></i> Profile

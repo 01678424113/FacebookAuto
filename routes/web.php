@@ -50,6 +50,13 @@ Route::group(['prefix'=>'user','middleware'=>'userLogin'],function (){
         Route::get('/groups-category', 'CategoriesPageController@getPostGroupCategory')->name('getPostGroupCategory');
         Route::post('groups-category','CategoriesPageController@getPostGroupCategory')->name('postPostGroupCategory');
 
+        Route::get('category','CategoriesPageController@index')->name('showCategory');
+        Route::get('/category-create','CategoriesPageController@getAdd')->name('getAddCategory');
+        Route::post('category-create','CategoriesPageController@postAdd')->name('postAddCategory');
+        Route::get('/category-delete/{id}','CategoriesPageController@delete')->name('deleteCategory');
+        Route::get('/category-edit/{id}','CategoriesPageController@getEdit')->name('getEditCategory');
+        Route::post('/category-edit/{id}','CategoriesPageController@postEdit')->name('postEditCategory');
+
         Route::get('posts','PostController@index')->name('getPosts');
 
         Route::group(['prefix'=>'ajax'],function (){
