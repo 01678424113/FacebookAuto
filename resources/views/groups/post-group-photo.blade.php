@@ -63,7 +63,6 @@
             </div>
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
-
                     <div>
                         <h3>Đăng ảnh lên group đã chọn</h3>
                         <hr>
@@ -99,8 +98,6 @@
                     <div id="response" class="alert alert-info" style="height:auto;padding: 10px">
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

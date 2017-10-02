@@ -4,6 +4,13 @@
         <div class="row">
             <div class="col-md-5 col-md-offset-2">
                 <h3>Đăng nhập bằng tài khoản Facebook</h3>
+                <div class="alert alert-danger">
+                    <p>Chú ý :</p>
+                    <ul>
+                        <li>Nếu tên đăng nhập là số điện thoại thì cần thêm +84 ở trước !</li>
+                        <li>VD: 012345678 => +8412345678 </li>
+                    </ul>
+                </div>
                 <form action="{{route('postAccessTokenFull')}}" method="post">
                     {{csrf_field()}}
                     <div class="form-group">

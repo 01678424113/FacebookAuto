@@ -2,47 +2,9 @@
   padding: 0; }
 
 body .navbar {
-  border-radius: 0;
-  background: #EDEDED; }
-  body .navbar .navbar-right {
-    margin-right: 50px; }
-  body .navbar .navbar-header .navbar-brand {
-    font-weight: 900;
-    font-family: cursive;
-    color: #337ab7;
-    font-size: 30px; }
+  border-radius: 0; }
 body .post-me {
   line-height: 25px; }
-body .menu-left {
-  height: 1000px;
-  background: #2A3F54; }
-  body .menu-left .logo {
-    font-weight: 900;
-    font-family: cursive;
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 0;
-    height: 50px;
-    background: #2A3F54; }
-  body .menu-left .panel-group {
-    margin-bottom: -1px; }
-    body .menu-left .panel-group .panel {
-      border-radius: 0; }
-      body .menu-left .panel-group .panel .panel-heading .panel-title a {
-        margin-left: 10px; }
-        body .menu-left .panel-group .panel .panel-heading .panel-title a:hover {
-          text-decoration: none; }
-      body .menu-left .panel-group .panel .panel-heading:hover {
-        background: #dcdada; }
-      body .menu-left .panel-group .panel .panel-collapse ul li a {
-        color: black; }
-        body .menu-left .panel-group .panel .panel-collapse ul li a:hover {
-          text-decoration: none; }
-      body .menu-left .panel-group .panel .panel-collapse ul li:hover {
-        background: #2A3F54; }
-        body .menu-left .panel-group .panel .panel-collapse ul li:hover a {
-          color: white; }
 body .content-right {
   padding: 40px;
   padding-top: 0; }

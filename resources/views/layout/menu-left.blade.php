@@ -1,58 +1,57 @@
-<div class="menu-left">
-    <p class="logo">Share.vn</p>
-    <div class="panel-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <i class="fa fa-apple" aria-hidden="true"></i>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Page</a>
-                </h4>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="{{route('getPostPage')}}">Đăng lên page</a></li>
-                    <li class="list-group-item"><a href="{{route('showPage')}}">Danh sách page</a></li>
-                    <li class="list-group-item"><a href="{{route('getAddPage')}}">Thêm page</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="panel-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <i class="fa fa-google-wallet" aria-hidden="true"></i>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Group</a>
-                </h4>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="{{route('getPostGroupMe')}}">Đăng lên group của bạn</a></li>
-                    <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên group theo id</a></li>
-                    <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên group theo thể loại</a></li>
-                    <li class="list-group-item"><a href="{{route('getPostGroupPhoto')}}">Đăng ảnh group của bạn</a></li>
-                    <li class="list-group-item"><a href="{{route('getPostGroupVideo')}}">Đăng video group của bạn</a></li>
-                    <li class="list-group-item"><a href="{{route('showGroup')}}">Danh sách group</a></li>
-                    <li class="list-group-item"><a href="{{route('getAddGroup')}}">Thêm group</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="panel-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <i class="fa fa-apple" aria-hidden="true"></i>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Bài đăng</a>
-                </h4>
-            </div>
-            <div id="collapse3" class="panel-collapse collapse">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="{{route('getPosts')}}">Lịch sử đăng</a></li>
+<div class="nav-side-menu">
+    <div class="brand"><a href="">Shares.vn</a></div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-                </ul>
-            </div>
-        </div>
+    <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+            <li>
+                <a href="#">
+                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                </a>
+            </li>
+            {{--Page--}}
+            <li  data-toggle="collapse" data-target="#page" class="collapsed active">
+                <a href="#"><i class="fa fa-gift fa-lg"></i> Page <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="page">
+                <li class="list-group-item active"><a href="{{route('getPostPage')}}">Đăng lên page</a></li>
+                <li class="list-group-item"><a href="{{route('showPage')}}">Danh sách page</a></li>
+                <li class="list-group-item"><a href="{{route('getAddPage')}}">Thêm page</a></li>
+            </ul>
+
+            {{--Group--}}
+            <li  data-toggle="collapse" data-target="#group" class="collapsed">
+                <a href="#"><i class="fa fa-gift fa-lg"></i> Group <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="group">
+                <li class="list-group-item"><a href="{{route('getPostGroupMe')}}">Đăng lên group của bạn</a></li>
+                <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên group theo id</a></li>
+                <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên group theo thể loại</a></li>
+                <li class="list-group-item"><a href="{{route('getPostGroupPhoto')}}">Đăng ảnh group của bạn</a></li>
+                <li class="list-group-item"><a href="{{route('getPostGroupVideo')}}">Đăng video group của bạn</a></li>
+                <li class="list-group-item"><a href="{{route('showGroup')}}">Danh sách group</a></li>
+            </ul>
+
+            {{--History--}}
+            <li  data-toggle="collapse" data-target="#history" class="collapsed">
+                <a href="#"><i class="fa fa-gift fa-lg"></i> Lịch sử bài đăng <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="history">
+                <li class="list-group-item"><a href="{{route('getPosts')}}">Lịch sử đăng</a></li>
+            </ul>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user fa-lg"></i> Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-users fa-lg"></i> Users
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
 

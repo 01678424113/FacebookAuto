@@ -56,7 +56,8 @@
                         <h3>Các id groups đã được chọn :</h3>
                         <hr>
                         <label for="group_ids">ID group :</label>
-                        <textarea name="group_ids" class="form-control" id="group_ids" style="width: 500px;height: 200px;"
+                        <textarea name="group_ids" class="form-control" id="group_ids"
+                                  style="width: 500px;height: 200px;"
                                   placeholder="Nhập id các group"><?php if (isset($_POST['checkbox-group'])) {
                                 foreach ($_POST['checkbox-group'] as $value) {
                                     echo trim($value) . ";";
