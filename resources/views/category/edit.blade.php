@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="category_name">Name:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Nhập name thể loại mới" value="{{$category->name}}">
+                        <input type="text" class="form-control" id="category_name" minlength="5" name="category_name" placeholder="Nhập name thể loại mới" value="{{$category->name}}">
                     </div>
                 </div>
                 <div class="form-group">

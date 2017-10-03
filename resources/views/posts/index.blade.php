@@ -11,11 +11,13 @@
                     <td>Người đăng</td>
                 </tr>
                 @foreach($posts as $post)
+                    @if($post->users->id == Session::get('id_user'))
                     <tr>
                         <td>{{$post->id}}</td>
                         <td>{{$post->post_id}}</td>
                         <td>{{$post->users->name}}</td>
                     </tr>
+                    @endif
                 @endforeach
             </table>
             {{$posts->links()}}

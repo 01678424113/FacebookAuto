@@ -15,21 +15,21 @@ var _List_access_token; // List access token page
 var _monitor; // Message post
 
 //Function start
-function StartPost() {
-    _link = document.getElementById('link').value;
-    _message = document.getElementById('message').value;
+function StartPostPageLink() {
+    _link = document.getElementById('url-link').value;
+    _message = document.getElementById('message-link').value;
     _monitor = document.getElementById('response');
     _List = document.getElementById('page_ids').value.split(';');
     _List_access_token = document.getElementById('access_token_page').value;
     _ListIndex = -1;
-    _wait_time = parseInt(document.getElementById('time').value);
+    _wait_time = parseInt(document.getElementById('time-link').value);
     _wait_time = _wait_time + Math.floor(Math.random()*20);
-    setTimeout("_AutoCall()", 1000);
+    setTimeout("_AutoCallPageLink()", 1000);
 }
-function _AutoCall() {
+function _AutoCallPageLink() {
     var CallAutoCall = true;
     if (_wait_time === 0) {
-        _wait_time = parseInt(document.getElementById('time').value);
+        _wait_time = parseInt(document.getElementById('time-link').value);
         _ListIndex++;
         if (_ListIndex < (_List.length-1)) {
             //Delete space
@@ -38,7 +38,7 @@ function _AutoCall() {
             } else {
                 _List[_ListIndex] = _List[_ListIndex].trim();
                 _List_access_token= _List_access_token.trim();
-                _PostToPageId(_List[_ListIndex], _List_access_token);
+                _PostToPageIdLink(_List[_ListIndex], _List_access_token);
             }
         } else {
             CallAutoCall = false;
@@ -48,7 +48,7 @@ function _AutoCall() {
         document.getElementById('timer').innerHTML = _wait_time;
     }
     if (CallAutoCall) {
-        setTimeout("_AutoCall()", 1000);
+        setTimeout("_AutoCallPageLink()", 1000);
     } else {
         var _p = document.createElement('p');
         _p.innerHTML = '*** ĐÃ HẾT NHÓM CẦN POST';
@@ -57,7 +57,7 @@ function _AutoCall() {
 }
 
 //Run post
-function _PostToPageId(_pageid, _access_token_page) {
+function _PostToPageIdLink(_pageid, _access_token_page) {
     FB.api('/' + _pageid + '/feed', 'post', {
         link: _link,
         message: _message,

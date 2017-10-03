@@ -83,6 +83,12 @@ class GroupController extends Controller
         $group->delete();
         return redirect()->back()->with('message','Đã xóa thành công !!');
     }
+
+    public function addGroupIntoCategory()
+    {
+
+    }
+
 //Function save post when user post to group or page.
     public function saveIdPost(Request $request)
     {

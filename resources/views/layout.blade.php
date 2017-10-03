@@ -22,7 +22,7 @@
         <div class="col-md-2 col-no-padding">
             @include('layout.menu-left')
         </div>
-        <div class="col-md-10" style="height: 100%;">
+        <div class="col-md-10">
             <div class="row">
                 <div class="col-md-12">
                     @include('layout.header')

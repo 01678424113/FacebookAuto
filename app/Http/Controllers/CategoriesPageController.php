@@ -107,11 +107,6 @@ class CategoriesPageController extends Controller
         return view('category.show',['categories'=>$categories]);
     }
 
-    public function getEdit($id)
-    {
-        $category = CategoriesPage::find($id);
-        return view('category.edit',['category'=>$category]);
-    }
 
     public function getAdd()
     {
@@ -130,6 +125,11 @@ class CategoriesPageController extends Controller
         }
     }
 
+    public function getEdit($id)
+    {
+        $category = CategoriesPage::find($id);
+        return view('category.edit',['category'=>$category]);
+    }
     public function postEdit(Request $request,$id)
     {
         $category = CategoriesPage::find($id);

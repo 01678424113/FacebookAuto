@@ -1,39 +1,74 @@
 @extends('layout')
 @section('content')
     <div class="col-md-12">
-        <div class="content-right show-group">
-            <h3 class="title-content-right">Danh sách group</h3>
-            <hr>
-            <table class="table-hover" style="width: 100%">
-                <tr>
-                    <td>ID</td>
-                    <td>Id group</td>
-                    <td>Name group</td>
-                    <td>Category group</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                @foreach($groups as $group)
-                    <tr>
-                        <td>{{$group->id}}</td>
-                        <td>{{$group->group_id}}</td>
-                        <td>{{$group->group_name}}</td>
-                        <td>{{$group->category->name}}</td>
-                        <td>
-                            <button class="btn btn-info"><a href="{{route('getEditGroup',$group->id)}}">Edit</a></button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger"><a href="{{route('deleteGroup',$group->id)}}">Delete</a></button>
-                        </td>
-                    </tr>
-                @endforeach
-            </table>
-            <button class="btn btn-info btn-add"><a href="{{route('getAddGroup')}}">Add group</a></button>
-        </div>
-        @if(session('message'))
-            <div class="alert alert-success">
-                <strong>{{session('message')}}</strong>
+        <div class="content-right post-group">
+            <div class="row alert alert-success">
+                <div class="col-md-6">
+                    <!--Show list group-->
+                    <div class="mt-5 mb-5">
+                        <h3>Danh sách các Group đã tham gia</h3>
+                        <hr>
+                        <form action="{{route('postPostGroupMe')}}" method="post">
+                            {{csrf_field()}}
+                            <select name="id_category" id="id_category" class="form-control">
+                                @foreach($categories as $category)
+                                    <option @if($category->id_category == $category->id)
+                                            {{"selected"}}
+                                            @endif
+                                            value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                            <?php
+                            $fb = new Facebook\Facebook([
+                                'app_id' => env('FACEBOOK_APP_ID_ANDROID'),
+                                'app_secret' => env('FACEBOOK_APP_SECRET_ANDROID'),
+                                'default_graph_version' => env('FACEBOOK_API_VERSION'),
+                            ]);
+                            if (Session::has('accessToken_user')) {
+                                $res = $fb->get('/me/groups?limit=9999', Session::get('accessToken_user'));
+                                $res = $res->getDecodedBody();
+                                $checked = "";
+                                foreach ($res['data'] as $group) {
+                                    if (isset($_POST['checkbox-group'])) {
+                                        foreach ($_POST['checkbox-group'] as $value) {
+                                            if ($value == $group['id']) {
+                                                $checked = "checked";
+                                                break;
+                                            } else {
+                                                $checked = "";
+                                            }
+                                        }
+                                    }
+                                    echo " <div class='checkbox'>
+                                    <label><input type='checkbox' name='checkbox-group[]' value='" . $group['id'] . "' " . $checked . ">" . $group['name'] . " - " . $group['id'] . "</label>
+                                   </div>";
+                                }
+                            }
+                            ?>
+                            <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-group"
+                                   value="Thêm vào thể loại vừa chọn">
+                        </form>
+                    </div>
+                    <!--End show list group-->
+                </div>
+                </div>
             </div>
-        @endif
+        </div>
     </div>
+@endsection
+@section('script')
+    <script src="js/tabs-post.js"></script>
+    <script src="js/handling-group-link.js"></script>
+    <script src="js/handling-group-photo.js"></script>
+    <script src="js/handling-group-video.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#categories').change(function () {
+                var id_category = $(this).val();
+                $.get("user/ajax/group/" + id_category, function (data) {
+                    $('#groups').html(data);
+                });
+            });
+        });
+    </script>
 @endsection
