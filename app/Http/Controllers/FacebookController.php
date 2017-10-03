@@ -158,14 +158,19 @@ class FacebookController extends Controller
         }
         $sig .= '62f8ce9f74b12f84c123cc23437a4a32';
         $data['sig'] = md5($sig);
-        $response = $this->cURL('GET', false, $data);
-        $response = json_decode($response);
+        try{
+            $response = $this->cURL('GET', false, $data);
+            $response = json_decode($response);
 
-        $user = User::find(Session::get('id_user'));
+            $user = User::find(Session::get('id_user'));
 
-        $user->access_token_full = $response->access_token;
-        $user->save();
-        Session::put('accessToken_user',$response->access_token);
-        return redirect()->route('home');
+            $user->access_token_full = $response->access_token;
+            $user->save();
+            Session::put('accessToken_user',$response->access_token);
+            return redirect()->route('home');
+        }catch (Exception $e){
+            return redirect()->back()->with('error','Tài khoản chưa được xác thực. Bạn vui lòng đăng nhập vào facebook.com để tiến hành xác thực tài khoản !');
+        };
+
     }
 }

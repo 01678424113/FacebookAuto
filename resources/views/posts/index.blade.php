@@ -1,7 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="col-md-12">
-        <div class="content-right show-group">
+        <div class="content-right show-group" style="height: 100%">
             <h3 class="title-content-right">Danh sách group</h3>
             <hr>
             <table class="table-hover" style="width: 100%">
@@ -28,5 +27,4 @@
                 <strong>{{session('message')}}</strong>
             </div>
         @endif
-    </div>
 @endsection
