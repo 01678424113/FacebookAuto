@@ -20,7 +20,8 @@ class CategoriesPageController extends Controller
 {
     public function getPostGroupMe()
     {
-        return view('groups.post-group-me');
+        $categories = CategoriesPage::all();
+        return view('groups.post-group-me',['categories'=>$categories]);
     }
     public function getPostGroupId()
     {

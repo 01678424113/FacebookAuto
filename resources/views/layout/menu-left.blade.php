@@ -16,7 +16,7 @@
             </li>
             <ul class="sub-menu collapse" id="page">
                 <li class="list-group-item"><a href="{{route('getPostPage')}}">Đăng lên page</a></li>
-                <li class="list-group-item"><a href="{{route('showPage')}}">Danh sách page</a></li>
+                <li class="list-group-item"><a href="{{--{{route('showPage')}}--}}">Danh sách page</a></li>
             </ul>
 
             {{--Group--}}
@@ -26,8 +26,7 @@
             <ul class="sub-menu collapse" id="group">
                 <li class="list-group-item"><a href="{{route('getPostGroupMe')}}">Đăng lên group của bạn</a></li>
                 <li class="list-group-item"><a href="{{route('getPostGroupId')}}">Đăng lên theo id</a></li>
-                <li class="list-group-item"><a href="{{route('getPostGroupCategory')}}">Đăng lên theo thể loại</a></li>
-                <li class="list-group-item"><a href="{{route('showGroup')}}">Group đã thêm</a></li>
+                <li class="list-group-item"><a href="{{route('showGroup')}}">Thêm group vào thể loại</a></li>
             </ul>
 
             {{--History--}}

@@ -8,7 +8,7 @@
                     <div class="mt-5 mb-5">
                         <h3>Danh sách các Group đã tham gia</h3>
                         <hr>
-                        <form action="{{route('postPostGroupMe')}}" method="post">
+                        <form action="{{route('addGroupIntoCategory')}}" method="post">
                             {{csrf_field()}}
                             <select name="id_category" id="id_category" class="form-control">
                                 @foreach($categories as $category)
@@ -40,7 +40,7 @@
                                         }
                                     }
                                     echo " <div class='checkbox'>
-                                    <label><input type='checkbox' name='checkbox-group[]' value='" . $group['id'] . "' " . $checked . ">" . $group['name'] . " - " . $group['id'] . "</label>
+                                    <label><input type='checkbox' name='checkbox-group[]' value='" . $group['id']. "-" . $group['name'] . "' " . $checked . ">" . $group['name'] . " - " . $group['id'] . "</label>
                                    </div>";
                                 }
                             }

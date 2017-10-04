@@ -4,45 +4,26 @@
         <div class="content-right post-group">
             <div class="row alert alert-success">
                 <div class="col-md-6">
-                    <!--Show list group-->
-                    <div class="mt-5 mb-5">
-                        <h3>Danh sách các Group đã tham gia</h3>
+                    <div class="content-test">
+                        <h3>Chọn group thể loại :</h3>
                         <hr>
                         <form action="{{route('postPostGroupMe')}}" method="post">
                             {{csrf_field()}}
-                            <?php
-                            $fb = new Facebook\Facebook([
-                                'app_id' => env('FACEBOOK_APP_ID_ANDROID'),
-                                'app_secret' => env('FACEBOOK_APP_SECRET_ANDROID'),
-                                'default_graph_version' => env('FACEBOOK_API_VERSION'),
-                            ]);
-                            if (Session::has('accessToken_user')) {
-                                $res = $fb->get('/me/groups?limit=9999', Session::get('accessToken_user'));
-                                $res = $res->getDecodedBody();
-                                $checked = "";
-                                foreach ($res['data'] as $group) {
-                                    if (isset($_POST['checkbox-group'])) {
-                                        foreach ($_POST['checkbox-group'] as $value) {
-                                            if ($value == $group['id']) {
-                                                $checked = "checked";
-                                                break;
-                                            } else {
-                                                $checked = "";
-                                            }
-                                        }
-                                    }
-                                    echo " <div class='checkbox'>
-                                    <label><input type='checkbox' name='checkbox-group[]' value='" . $group['id'] . "' " . $checked . ">" . $group['name'] . " - " . $group['id'] . "</label>
-                                   </div>";
-                                }
-                            }
-                            ?>
+                            <div class="form-group">
+                                <select class="form-control" id="categories">
+                                    <option value="">Chọn thể loại</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div id="groups">
+
+                            </div>
                             <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-group"
                                    value="Chọn group">
-
                         </form>
                     </div>
-                    <!--End show list group-->
                 </div>
                 <div class="col-md-6">
                     <h3>Thông báo | <span id="timer">0</span> giây</h3>
@@ -250,7 +231,7 @@
         $(document).ready(function () {
             $('#categories').change(function () {
                 var id_category = $(this).val();
-                $.get("user/ajax/group/" + id_category, function (data) {
+                $.get("user/acction/ajax/group/" + id_category, function (data) {
                     $('#groups').html(data);
                 });
             });

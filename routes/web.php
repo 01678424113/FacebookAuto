@@ -47,8 +47,7 @@ Route::group(['prefix'=>'user','middleware'=>'userLogin'],function (){
         Route::post('groups-me','CategoriesPageController@getPostGroupMe')->name('postPostGroupMe');
         Route::get('/groups-id', 'CategoriesPageController@getPostGroupId')->name('getPostGroupId');
         Route::post('groups-id','CategoriesPageController@getPostGroupId')->name('postPostGroupId');
-        Route::get('/groups-category', 'CategoriesPageController@getPostGroupCategory')->name('getPostGroupCategory');
-        Route::post('groups-category','CategoriesPageController@getPostGroupCategory')->name('postPostGroupCategory');
+        Route::post('/add-group-category','GroupController@addGroupIntoCategory')->name('addGroupIntoCategory');
 
         Route::get('category','CategoriesPageController@index')->name('showCategory');
         Route::get('/category-create','CategoriesPageController@getAdd')->name('getAddCategory');

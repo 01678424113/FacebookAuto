@@ -128,7 +128,7 @@
                                         <div class="tab-pane fade in active" id="form-link">
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-2">
-                                                    <h3>Đăng bài lên page đã chọn</h3>
+                                                    <h3>Đăng link lên page đã chọn</h3>
                                                     <hr>
                                                     <textarea name="access_token" id="access_token_page"
                                                               style="width: 100%;height: 200px;" hidden>
@@ -166,7 +166,7 @@
                                             <div class="row">
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <div>
-                                                        <h3>Đăng ảnh lên group đã chọn</h3>
+                                                        <h3>Đăng ảnh lên page đã chọn</h3>
                                                         <hr>
                                                         <form enctype="multipart/form-data" method="post">
                                                             {{csrf_field()}}
@@ -195,7 +195,7 @@
                                                                        id="time-photo">
                                                             </div>
                                                             <input type="button" value="Đăng bài" class="btn btn-info"
-                                                                   onclick="StartPostGroupPhoto()">
+                                                                   onclick="StartPostPagePhoto()">
                                                             <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                                                         </form>
                                                     </div>
@@ -281,4 +281,5 @@
 @endsection
 @section('script')
     <script src="js/handling-page-link.js"></script>
+    <script src="js/handling-page-photo.js"></script>
 @endsection

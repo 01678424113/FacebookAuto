@@ -19,41 +19,46 @@ class GroupController extends Controller
     {
         $categories = CategoriesPage::all();
         $groups = Group::all();
-        return view('groups.show-group',['categories'=>$categories,'groups'=>$groups]);
+        return view('groups.show-group', ['categories' => $categories, 'groups' => $groups]);
     }
 
     public function getAdd()
     {
         $categories = CategoriesPage::all();
-        return view('groups.add-group',['categories'=>$categories]);
+        return view('groups.add-group', ['categories' => $categories]);
     }
 
-    public function postAdd(CreateGroupRequest $request)
+    public function postAdd($group_id, $group_name, $id_category)
     {
-        $group = new Group;
-        $group->group_id = $request->group_id;
-        $group->group_name = $request->group_name;
-        $group->id_category = $request->id_category;
-        $group->user_id = Session::get('id_user');
-        try{
-            $group->save();
-            try{
-                $group_add = Group::where('group_id',$request->group_id)->first();
-                Session::put('id_group',$group_add->id);
-                $group_user = new GroupUser;
-                $group_user->user_id = Session::get('id_user');
-                $group_user->group_id = Session::get('id_group');
-                try{
-                    $group_user->save();
-                    return redirect()->route('showGroup')->with('message','Đã thêm thành công!!');
-                }catch (Exception $e){
-                    return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu !');
+        $check_group = Group::where('group_id', $group_id)->first();
+        if (!isset($check_group)) {
+            $group = new Group;
+            $group->group_id = $group_id;
+            $group->group_name = $group_name;
+            $group->id_category = $id_category;
+            $group->user_id = Session::get('id_user');
+            try {
+                $group->save();
+                try {
+                    $group_add = Group::where('group_id', $group_id)->first();
+                    Session::put('id_group', $group_add->id);
+                    $group_user = new GroupUser;
+                    $group_user->user_id = Session::get('id_user');
+                    $group_user->group_id = Session::get('id_group');
+                    try {
+                        $group_user->save();
+                        return redirect()->route('showGroup')->with('message', 'Đã thêm thành công!!');
+                    } catch (Exception $e) {
+                        return redirect()->back()->with('error', 'Lỗi kết nối cơ sở dữ liệu !');
+                    }
+                } catch (Exception $e) {
+                    return redirect()->back()->with('error', 'Lỗi kết nối cơ sở dữ liệu !');
                 }
-            }catch (Exception $e){
-                return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu !');
+            } catch (Exception $e) {
+                return redirect()->back()->with('error', 'Lỗi kết nối cơ sở dữ liệu !');
             }
-        }catch (Exception $e){
-            return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu !');
+        }else{
+
         }
     }
 
@@ -61,19 +66,19 @@ class GroupController extends Controller
     {
         $categories = CategoriesPage::all();
         $group = Group::find($id);
-        return view('groups.edit-group',['group'=>$group,'categories'=>$categories]);
+        return view('groups.edit-group', ['group' => $group, 'categories' => $categories]);
     }
 
-    public function postEdit(EditGroupRequest $request,$id)
+    public function postEdit(EditGroupRequest $request, $id)
     {
         $group = Group::find($id);
         $group->group_name = $request->group_name;
         $group->id_category = $request->id_category;
-        try{
+        try {
             $group->save();
-            return redirect()->route('showGroup')->with('message','Sửa thành công !');
-        }catch (Exception $e){
-            return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu !');
+            return redirect()->route('showGroup')->with('message', 'Sửa thành công !');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Lỗi kết nối cơ sở dữ liệu !');
         }
     }
 
@@ -81,12 +86,7 @@ class GroupController extends Controller
     {
         $group = Group::find($id);
         $group->delete();
-        return redirect()->back()->with('message','Đã xóa thành công !!');
-    }
-
-    public function addGroupIntoCategory()
-    {
-
+        return redirect()->back()->with('message', 'Đã xóa thành công !!');
     }
 
 //Function save post when user post to group or page.
@@ -99,5 +99,18 @@ class GroupController extends Controller
         $post->user_id = $user_id;
         $post->save();
 
+    }
+
+    public function addGroupIntoCategory(Request $request)
+    {
+        $id_category = $request->id_category;
+        $group_infos = $request->input('checkbox-group');
+        foreach ($group_infos as $group_info) {
+            $group_info = explode('-', $group_info);
+            $group_id = $group_info[0];
+            $group_name = $group_info[1];
+            $this->postAdd($group_id, $group_name, $id_category);
+        }
+        return redirect()->back()->with('message', 'Đã thêm thành công ! ');
     }
 }
