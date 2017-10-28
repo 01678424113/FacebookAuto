@@ -6,8 +6,23 @@
   justify-content: center;
 }
 body {
-  .navbar{
-    border-radius: 0;
+  #wrapper{
+    .navbar{
+      background: #3B5998;
+      .navbar-brand{
+        color: white;
+        font-size: 30px;
+      }
+      .dropdown-toggle{
+        color: white;
+        &:hover{
+          color: #3B5998;
+        }
+        &:focus{
+          color: #3B5998;
+        }
+      }
+    }
   }
   .post-me {
     line-height: 25px;
@@ -18,26 +33,8 @@ body {
   .content-right {
     padding: 15px;
     padding-top: 0;
-    .table-hover {
-      margin-bottom: 10px;
-      tr {
-        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-        td {
-          padding: 5px;
-          text-align: center;
-          button {
-            a {
-              color: white;
-              &:hover {
-                text-decoration: none;
-              }
-            }
-          }
-        }
-      }
-      tr:first-child {
-        background: rgba(128, 128, 128, 0.2);
-      }
+    table{
+      text-align: center;
     }
     .btn-add {
       a {
@@ -48,15 +45,7 @@ body {
       }
     }
   }
-  .footer {
-    height: 30px;
-    background: rgb(36, 50, 64);
-    p {
-      color: white;
-      line-height: 30px;
-      margin-bottom: 0;
-    }
-  }
+
 }
 
 /***********************************************Page***************************************************/

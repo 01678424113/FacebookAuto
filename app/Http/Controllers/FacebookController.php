@@ -30,7 +30,7 @@ class FacebookController extends Controller
         $helper = $this->fb->getRedirectLoginHelper();
         $permissions = ['public_profile,email'];
         $loginURL = $helper->getLoginUrl(action('FacebookController@facebookLoginCallback'), $permissions);
-        return view('pages.index', ['login_url' => $loginURL,'user'=>$user]);
+        return view('pages.index', ['login_url' => $loginURL, 'user' => $user]);
     }
 
     public function facebookLoginCallback(Request $request)
@@ -53,31 +53,31 @@ class FacebookController extends Controller
             $usernode = $response->getGraphUser();
             $user_name = $usernode->getName();
             $user_id = $usernode->getId();
-            Session::put('user_name',$user_name);
+            Session::put('user_name', $user_name);
 
-            $user = User::where('user_id',$user_id)->first();
-            if(!empty($user)){
+            $user = User::where('user_id', $user_id)->first();
+            if (!empty($user)) {
                 $id_user = $user->id;
-                Session::put('id_user',$id_user);
-                if(!empty($user->access_token_full)){
-                    Session::put('accessToken_user',$user->access_token_full);
+                Session::put('id_user', $id_user);
+                if (!empty($user->access_token_full)) {
+                    Session::put('accessToken_user', $user->access_token_full);
                     return redirect('/');
-                }else{
+                } else {
                     return redirect('/');
                 }
-            }else{
+            } else {
                 $user_new = new User;
                 $user_new->user_id = $user_id;
                 $user_new->name = $user_name;
                 $user_new->password = md5(123456);
-                try{
+                try {
                     $user_new->save();
-                    $user = User::where('user_id',$user_id)->first();
+                    $user = User::where('user_id', $user_id)->first();
                     $id_user = $user->id;
-                    Session::put('id_user',$id_user);
+                    Session::put('id_user', $id_user);
                     return redirect('/');
-                }catch (Exception $e){
-                    return redirect()->back()->with('error','Lỗi kết nối cơ sở dữ liệu');
+                } catch (Exception $e) {
+                    return redirect()->back()->with('error', 'Lỗi kết nối cơ sở dữ liệu');
                 }
             }
         } catch (\Exception $e) {
@@ -102,10 +102,11 @@ class FacebookController extends Controller
 
     public function getAccesstokenFullPermission()
     {
-       return view('facebook.getAccessTokenFullPermission');
+        return view('facebook.getAccessTokenFullPermission');
     }
 
-    public function cURL($method = 'GET', $url = false, $data){
+    public function cURL($method = 'GET', $url = false, $data)
+    {
         $c = curl_init();
         $user_agents = array(
             "Mozilla/5.0 (Linux; Android 5.0.2; Andromax C46B2G Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/60.0.0.16.76;]",
@@ -117,12 +118,12 @@ class FacebookController extends Controller
         );
         $useragent = $user_agents[array_rand($user_agents)];
         $opts = array(
-            CURLOPT_URL => ($url ? $url : 'https://api.facebook.com/restserver.php').($method == 'GET' ? '?'.http_build_query($data) : ''),
+            CURLOPT_URL => ($url ? $url : 'https://api.facebook.com/restserver.php') . ($method == 'GET' ? '?' . http_build_query($data) : ''),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_USERAGENT => $useragent
         );
-        if($method == 'POST'){
+        if ($method == 'POST') {
             $opts[CURLOPT_POST] = true;
             $opts[CURLOPT_POSTFIELDS] = $data;
         }
@@ -131,12 +132,13 @@ class FacebookController extends Controller
         curl_close($c);
         return $d;
     }
+
     public function postAccesstokenFullPermission(Request $request)
     {
         $username = $request->username;
         $password = $request->password;
-        Session::put('username',$username);
-        Session::put('password',$password);
+        Session::put('username', $username);
+        Session::put('password', $password);
 
 
         $data = [
@@ -153,12 +155,12 @@ class FacebookController extends Controller
             "v" => "1.0"
         ];
         $sig = "";
-        foreach($data as $key => $value){
+        foreach ($data as $key => $value) {
             $sig .= "$key=$value";
         }
         $sig .= '62f8ce9f74b12f84c123cc23437a4a32';
         $data['sig'] = md5($sig);
-        try{
+        try {
             $response = $this->cURL('GET', false, $data);
             $response = json_decode($response);
 
@@ -166,11 +168,10 @@ class FacebookController extends Controller
 
             $user->access_token_full = $response->access_token;
             $user->save();
-            Session::put('accessToken_user',$response->access_token);
+            Session::put('accessToken_user', $response->access_token);
             return redirect()->route('home');
-        }catch (Exception $e){
-            return redirect()->back()->with('error','Tài khoản chưa được xác thực. Bạn vui lòng đăng nhập vào facebook.com để tiến hành xác thực tài khoản !');
-        };
-
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Tài khoản chưa được xác thực. Bạn vui lòng đăng nhập vào facebook.com để tiến hành xác thực tài khoản !');
+        }
     }
 }
