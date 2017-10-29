@@ -17,8 +17,6 @@ var _monitor; // Message post
 function StartPostGroupLink() {
     _messageGroup = document.getElementById('message-link').value;
     _linkGroup = document.getElementById('url-link').value;
-
-
     _accessTokenUser = document.getElementById('access_token_user').value;
     _monitor = document.getElementById('response');
     _List = document.getElementById('group_ids').value.split(';');
@@ -62,6 +60,7 @@ function _PostToGroupIdLink( _groupid, _access_token_user) {
         link: _linkGroup,
         access_token: _access_token_user
     }, function (response) {
+        console.log(response);
         var ms_post = document.createElement('p');
         if (!response || response.error) {
             ms_post.innerHTML = "Có lỗi" + response.error + " khi post bài vào groupid = " + _groupid;

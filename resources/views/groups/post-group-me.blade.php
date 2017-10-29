@@ -10,16 +10,18 @@
                         <form action="{{route('postPostGroupMe')}}" method="post">
                             {{csrf_field()}}
                             <div class="form-group">
-                                <select class="form-control" id="categories">
+                                <select class="form-control"  id="categories">
                                     <option value="">Chọn thể loại</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            {{--Danh sách group--}}
                             <div id="groups">
 
                             </div>
+                            {{--End danh sách group--}}
                             <input type="submit" class="btn btn-info" style="margin-top: 5px;" id="btn-checkbox-group"
                                    value="Chọn group">
                         </form>
@@ -103,22 +105,26 @@
                                             <hr>
                                             <div class="form-group">
                                                 <label for="message-link">Message :</label>
-                                                <input type="text" class="form-control" name="message-link" id="message-link">
+                                                <input type="text" class="form-control" name="message-link"
+                                                       id="message-link">
                                             </div>
                                             <div class="form-group">
                                                 <label for="url-link">Link :</label>
                                                 <input type="url" class="form-control" name="url-link" id="url-link">
                                             </div>
-                                            <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
+                                            <textarea hidden name="access_token_user"
+                                                      style="width: 500px;height: 200px;"
                                                       id="access_token_user"><?php if (Session::has('accessToken_user')) {
                                                     echo Session::get('accessToken_user');
                                                 }?></textarea>
                                             <br>
                                             <div class="form-group">
                                                 <label for="time-link">Tự đăng sau (s) :</label>
-                                                <input type="number" class="form-control" name="time-link" id="time-link">
+                                                <input type="number" class="form-control" name="time-link"
+                                                       id="time-link">
                                             </div>
-                                            <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPostGroupLink()">
+                                            <input type="button" value="Đăng bài" class="btn btn-info"
+                                                   onclick="StartPostGroupLink()">
                                             <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                                         </div>
                                         <hr>
@@ -135,13 +141,16 @@
                                                 {{csrf_field()}}
                                                 <div class="form-group">
                                                     <label for="message-photo">Message :</label>
-                                                    <input type="text" class="form-control" name="message-photo" id="message-photo">
+                                                    <input type="text" class="form-control" name="message-photo"
+                                                           id="message-photo">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="url-photo">URL ảnh :</label>
-                                                    <input type="url" class="form-control" name="url-photo" id="url-photo">
+                                                    <input type="url" class="form-control" name="url-photo"
+                                                           id="url-photo">
                                                 </div>
-                                                <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
+                                                <textarea hidden name="access_token_user"
+                                                          style="width: 500px;height: 200px;"
                                                           id="access_token_user"><?php if (Session::has('accessToken_user')) {
                                                         echo Session::get('accessToken_user');
                                                     }?></textarea>
@@ -149,9 +158,11 @@
 
                                                 <div class="form-group">
                                                     <label for="time-photo">Tự đăng sau :</label>
-                                                    <input type="number" class="form-control" name="time-photo" id="time-photo">
+                                                    <input type="number" class="form-control" name="time-photo"
+                                                           id="time-photo">
                                                 </div>
-                                                <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPostGroupPhoto()">
+                                                <input type="button" value="Đăng bài" class="btn btn-info"
+                                                       onclick="StartPostGroupPhoto()">
                                                 <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                                             </form>
                                         </div>
@@ -167,22 +178,26 @@
                                             <hr>
                                             <div class="form-group">
                                                 <label for="message-video">Message :</label>
-                                                <input type="text" class="form-control" name="message-video" id="message-video">
+                                                <input type="text" class="form-control" name="message-video"
+                                                       id="message-video">
                                             </div>
                                             <div class="form-group">
                                                 <label for="url-video">Link :</label>
                                                 <input type="url" class="form-control" name="url-video" id="url-video">
                                             </div>
-                                            <textarea hidden name="access_token_user" style="width: 500px;height: 200px;"
+                                            <textarea hidden name="access_token_user"
+                                                      style="width: 500px;height: 200px;"
                                                       id="access_token_user"><?php if (Session::has('accessToken_user')) {
                                                     echo Session::get('accessToken_user');
                                                 }?></textarea>
                                             <br>
                                             <div class="form-group">
                                                 <label for="time-video">Tự đăng sau :</label>
-                                                <input type="number" class="form-control" name="time-video" id="time-video">
+                                                <input type="number" class="form-control" name="time-video"
+                                                       id="time-video">
                                             </div>
-                                            <input type="button" value="Đăng bài" class="btn btn-info" onclick="StartPostGroupVideo()">
+                                            <input type="button" value="Đăng bài" class="btn btn-info"
+                                                   onclick="StartPostGroupVideo()">
                                             <a class="btn btn-danger" href={{route('reset')}}>Reset</a>
                                         </div>
                                         <hr>

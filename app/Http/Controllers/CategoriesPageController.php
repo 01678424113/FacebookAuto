@@ -20,6 +20,7 @@ class CategoriesPageController extends Controller
 {
     public function getPostGroupMe()
     {
+        dd($_POST['checkbox-group[]']);
         $categories = CategoriesPage::all();
         return view('groups.post-group-me',['categories'=>$categories]);
     }
