@@ -27,13 +27,4 @@
         </div>
     </div>
 @endsection
-@section('script')
-   {{-- <script>
-        $(document).ready(function () {
-            $('#click').click(function () {
-                var password = $('#password').val();
-                alert(password);
-            });
-        });
-    </script>--}}
-@endsection
+

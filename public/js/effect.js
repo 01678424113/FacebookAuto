@@ -11,7 +11,6 @@ window.fbAsyncInit = function () {
     });
     FBLoaded = true;
 };
-
 //Facebook SDK
 (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];

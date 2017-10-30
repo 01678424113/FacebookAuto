@@ -71,6 +71,7 @@
 <!-- Custom Theme JavaScript -->
 <script src="asset_admin/dist/js/sb-admin-2.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script src="js/effect.js"></script>
 @yield('script')
 </body>
 

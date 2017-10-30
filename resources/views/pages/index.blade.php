@@ -1,14 +1,14 @@
 @extends('layout')
 @section('content')
-    <div class="container" style="height: 100%">
         <div class="row">
             @if(empty($user->access_token_full) &&  Session::get('id_user'))
 
-                <div class="">
+                <div class="col-md-12">
                     <p class="alert alert-warning" style="color: black">Bạn cần lấy access token full quyền để thực hiện
                         được
                         đầy đủ các chức năng. Click dưới để tiếp tục</p>
-                    <div class="btn btn-default"><a href="{{route('getAccessTokenFull')}}">Click now</a></div>
+                    <a class="btn btn-default" href="{{route('getAccessTokenFull')}}">Lấy bằng cách đăng nhập tài khoản</a>
+                    <a class="btn btn-default" href="{{route('getAccessTokenFull')}}">Lấy bằng cách copy.(Khuyến khích)</a>
                 </div>
             @elseif(!empty($user->access_token_full))
                 <div class="col-md-6 alert alert-success">
@@ -41,7 +41,6 @@
                 </div>
             </div>
         @endif
-    </div>
 @endsection
 @section('script')
 

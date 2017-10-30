@@ -108,19 +108,6 @@
                      <span class="round-tabs three">
                           <i class="fa fa-video-camera" aria-hidden="true"></i>
                      </span> </a>
-                                            </li>
-                                            <li><a href="#settings" data-toggle="tab" title="blah blah">
-                         <span class="round-tabs four">
-                              <i class="glyphicon glyphicon-comment"></i>
-                         </span>
-                                                </a></li>
-
-                                            <li><a href="#doner" data-toggle="tab" title="completed">
-                         <span class="round-tabs five">
-                              <i class="glyphicon glyphicon-ok"></i>
-                         </span> </a>
-                                            </li>
-
                                         </ul>
                                     </div>
 
@@ -237,34 +224,6 @@
                                                     <hr>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="settings">
-                                            <h3 class="head text-center">Drop comments!</h3>
-                                            <p class="narrow text-center">
-                                                Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim
-                                                facilis
-                                                tincidunt ut, utinam saperet facilisi an vim.
-                                            </p>
-
-                                            <p class="text-center">
-                                                <a href="" class="btn btn-success btn-outline-rounded green"> start
-                                                    using
-                                                    bootsnipp
-                                                    <span style="margin-left:10px;"
-                                                          class="glyphicon glyphicon-send"></span></a>
-                                            </p>
-                                        </div>
-                                        <div class="tab-pane fade" id="doner">
-                                            <div class="text-center">
-                                                <i class="img-intro icon-checkmark-circle"></i>
-                                            </div>
-                                            <h3 class="head text-center">thanks for staying tuned! <span
-                                                        style="color:#f48260;">♥</span> Bootstrap</h3>
-                                            <p class="narrow text-center">
-                                                Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim
-                                                facilis
-                                                tincidunt ut, utinam saperet facilisi an vim.
-                                            </p>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
